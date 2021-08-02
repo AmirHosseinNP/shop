@@ -5,7 +5,10 @@
         <div class="col-sm-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h1 class="box-title">دسته بندی ها</h1>
+                    <div class="d-flex align-items-center">
+                        <h1 class="box-title">دسته بندی ها</h1>
+                        <a href="{{ route('categories.create') }}" class="btn btn-success ml-15">ایجاد دسته بندی</a>
+                    </div>
                 </div>
                 <div class="box-body">
                     <div class="table-responsive">

@@ -38,6 +38,15 @@ class CategoryController extends Controller
      */
     public function store(NewCategoryRequest $request)
     {
+        $categoryExists = Category::query()
+            ->where('title', $request->get('title'))
+            ->where('category_id' , $request->get('category_id'))
+            ->exists();
+
+        if ($categoryExists) {
+            return redirect()->back()->withErrors(['This category already exists']);
+        }
+
         Category::query()->create([
             'title' => $request->get('title'),
             'category_id' => $request->get('category_id')
@@ -81,11 +90,12 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $categoryExists = Category::query()
-            ->where('title' , $request->get('title'))
-            ->where('id', '!=', $category->id)->exists();
+            ->where('title', $request->get('title'))
+            ->where('category_id' , $request->get('category_id'))
+            ->exists();
 
         if ($categoryExists) {
-            return redirect()->back()->withErrors(['title' => 'این دسته بندی وجود دارد']);
+            return redirect()->back()->withErrors(['This category already exists']);
         }
 
         $category->update([

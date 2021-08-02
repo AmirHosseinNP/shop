@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\Client\HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('/adminpanel')->group(function() {
 
@@ -27,6 +29,7 @@ Route::prefix('/adminpanel')->group(function() {
 
     Route::resource('brands', BrandController::class);
 
+    Route::resource('products', ProductController::class);
 });
 
 
