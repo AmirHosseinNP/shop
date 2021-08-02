@@ -529,6 +529,38 @@
 
             <li class="treeview">
                 <a href="#">
+                    <i class="mdi mdi-apps"></i>
+                    <span>دسته بندی‌ ها</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('categories.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                    </li>
+                    <li><a href="{{ route('categories.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="mdi mdi-apps"></i>
+                    <span>برندها</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('brands.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                    </li>
+                    <li><a href="{{ route('brands.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
                     <i class="mdi mdi-contacts"></i>
                     <span>Contact</span>
                     <span class="pull-right-container">
@@ -545,21 +577,7 @@
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-apps"></i>
-                    <span>دسته بندی‌ ها</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('categories.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
-                    </li>
-                    <li><a href="{{ route('categories.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
-                    </li>
-                </ul>
-            </li>
+
 
 
             <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>UI</li>
