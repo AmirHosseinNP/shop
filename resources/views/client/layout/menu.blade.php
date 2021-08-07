@@ -3,7 +3,7 @@
         <div class="navbar-header"><span class="visible-xs visible-sm"> منو <b></b></span></div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a class="home_link" title="خانه" href="index.html"><span>خانه</span></a></li>
+                <li><a class="home_link" title="خانه" href="/"><span>خانه</span></a></li>
                 <li class="mega-menu dropdown"><a>دسته ها</a>
                     <div class="dropdown-menu">
                         @foreach($categories as $category)

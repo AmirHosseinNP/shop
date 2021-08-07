@@ -304,682 +304,237 @@
                             <li class="header">
                                 <div class="bg-img text-white p-20" style="background-image: url(
                                 '/admin/images/user-info.jpg')" data-overlay="5">
-                                <div class="flexbox">
-                                    <div>
-                                        <h3 class="mb-0 mt-0">6 New</h3>
-                                        <span class="font-light">Tasks</span>
-                                    </div>
-                                    <div class="font-size-40">
-                                        <i class="mdi mdi-bulletin-board"></i>
+                                    <div class="flexbox">
+                                        <div>
+                                            <h3 class="mb-0 mt-0">6 New</h3>
+                                            <span class="font-light">Tasks</span>
+                                        </div>
+                                        <div class="font-size-40">
+                                            <i class="mdi mdi-bulletin-board"></i>
+                                        </div>
                                     </div>
                                 </div>
-            </div>
-            </li>
+                            </li>
 
-            <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu sm-scrol">
-                    <li><!-- Task item -->
-                        <a href="#">
-                            <h3>
-                                Lorem ipsum dolor sit amet
-                                <small class="pull-right">30%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 30%" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="sr-only">30% Complete</span>
-                                </div>
-                            </div>
-                        </a>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu sm-scrol">
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Lorem ipsum dolor sit amet
+                                                <small class="pull-right">30%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-danger" style="width: 30%"
+                                                     role="progressbar"
+                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">30% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Vestibulum nec ligula
+                                                <small class="pull-right">20%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-info" style="width: 20%"
+                                                     role="progressbar"
+                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">20% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Donec id leo ut ipsum
+                                                <small class="pull-right">70%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-success" style="width: 70%"
+                                                     role="progressbar"
+                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">70% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Praesent vitae tellus
+                                                <small class="pull-right">40%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-warning" style="width: 40%"
+                                                     role="progressbar"
+                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">40% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Nam varius sapien
+                                                <small class="pull-right">80%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-primary" style="width: 80%"
+                                                     role="progressbar"
+                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">80% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <h3>
+                                                Nunc fringilla
+                                                <small class="pull-right">90%</small>
+                                            </h3>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-info" style="width: 90%"
+                                                     role="progressbar"
+                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                    <span class="sr-only">90% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#" class="text-white bg-warning">View all tasks</a></li>
+                        </ul>
                     </li>
-                    <!-- end task item -->
-                    <li><!-- Task item -->
-                        <a href="#">
-                            <h3>
-                                Vestibulum nec ligula
-                                <small class="pull-right">20%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-info" style="width: 20%" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="sr-only">20% Complete</span>
-                                </div>
-                            </div>
-                        </a>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-cog fa-spin"></i></a>
                     </li>
-                    <!-- end task item -->
-                    <li><!-- Task item -->
-                        <a href="#">
-                            <h3>
-                                Donec id leo ut ipsum
-                                <small class="pull-right">70%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-success" style="width: 70%" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="sr-only">70% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- end task item -->
-                    <li><!-- Task item -->
-                        <a href="#">
-                            <h3>
-                                Praesent vitae tellus
-                                <small class="pull-right">40%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-warning" style="width: 40%" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="sr-only">40% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- end task item -->
-                    <li><!-- Task item -->
-                        <a href="#">
-                            <h3>
-                                Nam varius sapien
-                                <small class="pull-right">80%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-primary" style="width: 80%" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="sr-only">80% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- end task item -->
-                    <li><!-- Task item -->
-                        <a href="#">
-                            <h3>
-                                Nunc fringilla
-                                <small class="pull-right">90%</small>
-                            </h3>
-                            <div class="progress xs">
-                                <div class="progress-bar progress-bar-info" style="width: 90%" role="progressbar"
-                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                    <span class="sr-only">90% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <!-- end task item -->
                 </ul>
-            </li>
-            <li class="footer"><a href="#" class="text-white bg-warning">View all tasks</a></li>
-            </ul>
-            </li>
-            <!-- Control Sidebar Toggle Button -->
-            <li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-cog fa-spin"></i></a>
-            </li>
-            </ul>
-</div>
-</nav>
-</header>
+            </div>
+        </nav>
+    </header>
 
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
-    <!-- sidebar-->
-    <section class="sidebar">
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar-->
+        <section class="sidebar">
 
-        <!-- sidebar menu-->
-        <ul class="sidebar-menu" data-widget="tree">
-            <li class="user-profile treeview">
-                <a href="index.html">
-                    <img src="/admin/images/avatar/7.jpg" alt="user">
-                    <span>
+            <!-- sidebar menu-->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="user-profile treeview">
+                    <a href="index.html">
+                        <img src="/admin/images/avatar/7.jpg" alt="user">
+                        <span>
 				<span class="d-block font-weight-600 font-size-16">Samuel Brus</span>
 				<span class="email-id">samuel@gmail.com</span>
 			  </span>
-                    <span class="pull-right-container">
+                        <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="javascript:void()"><i class="fa fa-user mr-5"></i>My Profile </a></li>
-                    <li><a href="javascript:void()"><i class="fa fa-money mr-5"></i>My Balance</a></li>
-                    <li><a href="javascript:void()"><i class="fa fa-envelope-open mr-5"></i>Inbox</a></li>
-                    <li><a href="javascript:void()"><i class="fa fa-cog mr-5"></i>Account Setting</a></li>
-                    <li><a href="javascript:void()"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
-                </ul>
-            </li>
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>PERSONAL</li>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="javascript:void()"><i class="fa fa-user mr-5"></i>My Profile </a></li>
+                        <li><a href="javascript:void()"><i class="fa fa-money mr-5"></i>My Balance</a></li>
+                        <li><a href="javascript:void()"><i class="fa fa-envelope-open mr-5"></i>Inbox</a></li>
+                        <li><a href="javascript:void()"><i class="fa fa-cog mr-5"></i>Account Setting</a></li>
+                        <li><a href="javascript:void()"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
+                    </ul>
+                </li>
 
-            <li class="treeview active">
-                <a href="#">
-                    <i class="mdi mdi-view-dashboard"></i>
+                <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>PERSONAL</li>
 
-                    <span>Dashboard</span>
-                    <span class="pull-right-container">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>محصولات</span>
+                        <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="mdi mdi-toggle-switch-off"></i>Main Dashboard</a>
-                    </li>
-                    <li><a href="index-2.html"><i class="mdi mdi-toggle-switch-off"></i>e-Commerce Dashboard</a></li>
-                    <li><a href="index-3.html"><i class="mdi mdi-toggle-switch-off"></i>Cryptocurrency</a></li>
-                    <li><a href="index-4.html"><i class="mdi mdi-toggle-switch-off"></i>Analytics</a></li>
-                    <li><a href="index-5.html"><i class="mdi mdi-toggle-switch-off"></i>Hospital</a></li>
-                    <li><a href="index-6.html"><i class="mdi mdi-toggle-switch-off"></i>Support System</a></li>
-                    <li><a href="index-7.html"><i class="mdi mdi-toggle-switch-off"></i>Sales Report</a></li>
-                    <li><a href="index-8.html"><i class="mdi mdi-toggle-switch-off"></i>Music</a></li>
-                    <li><a href="index-9.html"><i class="mdi mdi-toggle-switch-off"></i>Material</a></li>
-                </ul>
-            </li>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('products.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('products.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-content-copy"></i>
-                    <span>Layout Options</span>
-                    <span class="pull-right-container">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>دسته بندی‌ ها</span>
+                        <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/layout_boxed.html"><i class="mdi mdi-toggle-switch-off"></i>Boxed</a></li>
-                    <li><a href="pages/layout_fixed.html"><i class="mdi mdi-toggle-switch-off"></i>Fixed</a></li>
-                    <li><a href="pages/layout_collapsed_sidebar.html"><i class="mdi mdi-toggle-switch-off"></i>Mini
-                            Sidebar</a></li>
-                </ul>
-            </li>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('categories.create') }}"><i
+                                    class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('categories.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-tune-vertical"></i>
-                    <span>Page Layouts </span>
-                    <span class="pull-right-container">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>برندها</span>
+                        <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/page_layout_inner_left_sidebar.html"><i class="mdi mdi-toggle-switch-off"></i>Inner
-                            Left Sidebar </a></li>
-                    <li><a href="pages/page_layout_inner_right_sidebar.html"><i class="mdi mdi-toggle-switch-off"></i>Inner
-                            Right Sidebar </a></li>
-                    <li><a href="pages/page_layout_inner_fixed_left_sidebar.html"><i
-                                class="mdi mdi-toggle-switch-off"></i>Inner Fixed Left Sidebar </a></li>
-                    <li><a href="pages/page_layout_inner_fixed_right_sidebar.html"><i
-                                class="mdi mdi-toggle-switch-off"></i>Inner Fixed Right Sidebar </a></li>
-                </ul>
-            </li>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('brands.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('brands.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
 
+                <li>
+                    <a href="pages/auth_login.html">
+                        <i class="mdi mdi-directions"></i>
+                        <span>Log Out</span>
+                    </a>
+                </li>
 
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>APPS</li>
+            </ul>
+        </section>
+    </aside>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-mailbox"></i> <span>Mailbox</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/mailbox_inbox.html"><i class="mdi mdi-toggle-switch-off"></i>Inbox</a></li>
-                    <li><a href="pages/mailbox_compose.html"><i class="mdi mdi-toggle-switch-off"></i>Compose</a></li>
-                    <li><a href="pages/mailbox_read_mail.html"><i class="mdi mdi-toggle-switch-off"></i>Read</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-apps"></i>
-                    <span>دسته بندی‌ ها</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('categories.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
-                    </li>
-                    <li><a href="{{ route('categories.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-apps"></i>
-                    <span>برندها</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ route('brands.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
-                    </li>
-                    <li><a href="{{ route('brands.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-contacts"></i>
-                    <span>Contact</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/contact_app_chat.html"><i class="mdi mdi-toggle-switch-off"></i>Chat app</a></li>
-                    <li><a href="pages/contact_app.html"><i class="mdi mdi-toggle-switch-off"></i>Contact / Employee</a>
-                    </li>
-                    <li><a href="pages/contact_userlist_grid.html"><i class="mdi mdi-toggle-switch-off"></i>Userlist
-                            Grid</a></li>
-                    <li><a href="pages/contact_userlist.html"><i class="mdi mdi-toggle-switch-off"></i>Userlist</a></li>
-                </ul>
-            </li>
-
-
-
-
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>UI</li>
-
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-widgets"></i>
-                    <span>UI Elements</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/ui_badges.html"><i class="mdi mdi-toggle-switch-off"></i>Badges</a></li>
-                    <li><a href="pages/ui_border_utilities.html"><i class="mdi mdi-toggle-switch-off"></i>Border</a>
-                    </li>
-                    <li><a href="pages/ui_buttons.html"><i class="mdi mdi-toggle-switch-off"></i>Buttons</a></li>
-                    <li><a href="pages/ui_color_utilities.html"><i class="mdi mdi-toggle-switch-off"></i>Color</a></li>
-                    <li><a href="pages/ui_dropdown.html"><i class="mdi mdi-toggle-switch-off"></i>Dropdown</a></li>
-                    <li><a href="pages/ui_dropdown_grid.html"><i class="mdi mdi-toggle-switch-off"></i>Dropdown Grid</a>
-                    </li>
-                    <li><a href="pages/ui_typography.html"><i class="mdi mdi-toggle-switch-off"></i>Typography</a></li>
-                    <li><a href="pages/ui_progress_bars.html"><i class="mdi mdi-toggle-switch-off"></i>Progress Bars</a>
-                    </li>
-                    <li><a href="pages/ui_grid.html"><i class="mdi mdi-toggle-switch-off"></i>Grid</a></li>
-                    <li><a href="pages/ui_ribbons.html"><i class="mdi mdi-toggle-switch-off"></i>Ribbons</a></li>
-                    <li><a href="pages/ui_sliders.html"><i class="mdi mdi-toggle-switch-off"></i>Sliders</a></li>
-                    <li><a href="pages/ui_tab.html"><i class="mdi mdi-toggle-switch-off"></i>Tabs</a></li>
-                    <li><a href="pages/ui_timeline.html"><i class="mdi mdi-toggle-switch-off"></i>Timeline</a></li>
-                    <li><a href="pages/ui_timeline_horizontal.html"><i class="mdi mdi-toggle-switch-off"></i>Horizontal
-                            Timeline</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-chemical-weapon"></i>
-                    <span>Icons</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/icons_fontawesome.html"><i class="mdi mdi-toggle-switch-off"></i>Font Awesome</a>
-                    </li>
-                    <li><a href="pages/icons_glyphicons.html"><i class="mdi mdi-toggle-switch-off"></i>Glyphicons</a>
-                    </li>
-                    <li><a href="pages/icons_material.html"><i class="mdi mdi-toggle-switch-off"></i>Material Icons</a>
-                    </li>
-                    <li><a href="pages/icons_themify.html"><i class="mdi mdi-toggle-switch-off"></i>Themify Icons</a>
-                    </li>
-                    <li><a href="pages/icons_simpleline.html"><i class="mdi mdi-toggle-switch-off"></i>Simple Line Icons</a>
-                    </li>
-                    <li><a href="pages/icons_cryptocoins.html"><i class="mdi mdi-toggle-switch-off"></i>Cryptocoins
-                            Icons</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-cube"></i>
-                    <span>Components</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/component_bootstrap_switch.html"><i class="mdi mdi-toggle-switch-off"></i>Bootstrap
-                            Switch</a></li>
-                    <li><a href="pages/component_date_paginator.html"><i class="mdi mdi-toggle-switch-off"></i>Date
-                            Paginator</a></li>
-                    <li><a href="pages/component_media_advanced.html"><i class="mdi mdi-toggle-switch-off"></i>Advanced
-                            Medias</a></li>
-                    <li><a href="pages/component_modals.html"><i class="mdi mdi-toggle-switch-off"></i>Modals</a></li>
-                    <li><a href="pages/component_nestable.html"><i class="mdi mdi-toggle-switch-off"></i>Nestable</a>
-                    </li>
-                    <li><a href="pages/component_notification.html"><i class="mdi mdi-toggle-switch-off"></i>Notification</a>
-                    </li>
-                    <li><a href="pages/component_portlet_draggable.html"><i class="mdi mdi-toggle-switch-off"></i>Draggable
-                            Portlets</a></li>
-                    <li><a href="pages/component_sweatalert.html"><i class="mdi mdi-toggle-switch-off"></i>Sweet
-                            Alert</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-checkerboard"></i>
-                    <span>Box Cards</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/box_cards.html"><i class="mdi mdi-toggle-switch-off"></i>User Card</a></li>
-                    <li><a href="pages/box_advanced.html"><i class="mdi mdi-toggle-switch-off"></i>Advanced Card</a>
-                    </li>
-                    <li><a href="pages/box_basic.html"><i class="mdi mdi-toggle-switch-off"></i>Basic Card</a></li>
-                    <li><a href="pages/box_color.html"><i class="mdi mdi-toggle-switch-off"></i>Card Color</a></li>
-                    <li><a href="pages/box_group.html"><i class="mdi mdi-toggle-switch-off"></i>Card Group</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-waves"></i>
-                    <span>Widgets</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/widgets_blog.html"><i class="mdi mdi-toggle-switch-off"></i>Blog</a></li>
-                    <li><a href="pages/widgets_chart.html"><i class="mdi mdi-toggle-switch-off"></i>Chart</a></li>
-                    <li><a href="pages/widgets_list.html"><i class="mdi mdi-toggle-switch-off"></i>List</a></li>
-                    <li><a href="pages/widgets_social.html"><i class="mdi mdi-toggle-switch-off"></i>Social</a></li>
-                    <li><a href="pages/widgets_statistic.html"><i class="mdi mdi-toggle-switch-off"></i>Statistic</a>
-                    </li>
-                    <li><a href="pages/widgets_weather.html"><i class="mdi mdi-toggle-switch-off"></i>Weather</a></li>
-                    <li><a href="pages/widgets.html"><i class="mdi mdi-toggle-switch-off"></i>Widgets</a></li>
-                </ul>
-            </li>
-
-
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>FORMS And TABLES</li>
-
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-receipt"></i>
-                    <span>Forms</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/forms_advanced.html"><i class="mdi mdi-toggle-switch-off"></i>Advanced
-                            Elements</a></li>
-                    <li><a href="pages/forms_code_editor.html"><i class="mdi mdi-toggle-switch-off"></i>Code Editor</a>
-                    </li>
-                    <li><a href="pages/forms_editor_markdown.html"><i class="mdi mdi-toggle-switch-off"></i>Markdown</a>
-                    </li>
-                    <li><a href="pages/forms_editors.html"><i class="mdi mdi-toggle-switch-off"></i>Editors</a></li>
-                    <li><a href="pages/forms_validation.html"><i class="mdi mdi-toggle-switch-off"></i>Form
-                            Validation</a></li>
-                    <li><a href="pages/forms_wizard.html"><i class="mdi mdi-toggle-switch-off"></i>Form Wizard</a></li>
-                    <li><a href="pages/forms_general.html"><i class="mdi mdi-toggle-switch-off"></i>General Elements</a>
-                    </li>
-                    <li><a href="pages/forms_mask.html"><i class="mdi mdi-toggle-switch-off"></i>Formatter</a></li>
-                    <li><a href="pages/forms_xeditable.html"><i class="mdi mdi-toggle-switch-off"></i>Xeditable
-                            Editor</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-table"></i>
-                    <span>Tables</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/tables_simple.html"><i class="mdi mdi-toggle-switch-off"></i>Simple tables</a>
-                    </li>
-                    <li><a href="pages/tables_data.html"><i class="mdi mdi-toggle-switch-off"></i>Data tables</a></li>
-                    <li><a href="pages/tables_editable.html"><i class="mdi mdi-toggle-switch-off"></i>Editable
-                            Tables</a></li>
-                    <li><a href="pages/tables_color.html"><i class="mdi mdi-toggle-switch-off"></i>Table Color</a></li>
-                </ul>
-            </li>
-
-
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>CHARTS</li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-chart-bar"></i>
-                    <span>Chart</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/charts_chartjs.html"><i class="mdi mdi-toggle-switch-off"></i>ChartJS</a></li>
-                    <li><a href="pages/charts_flot.html"><i class="mdi mdi-toggle-switch-off"></i>Flot</a></li>
-                    <li><a href="pages/charts_inline.html"><i class="mdi mdi-toggle-switch-off"></i>Inline charts</a>
-                    </li>
-                    <li><a href="pages/charts_morris.html"><i class="mdi mdi-toggle-switch-off"></i>Morris</a></li>
-                    <li><a href="pages/charts_peity.html"><i class="mdi mdi-toggle-switch-off"></i>Peity</a></li>
-                    <li><a href="pages/charts_chartist.html"><i class="mdi mdi-toggle-switch-off"></i>Chartist</a></li>
-                </ul>
-            </li>
-
-
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>EXTRA COMPONENTS</li>
-
-            <li>
-                <a href="pages/email_index.html">
-                    <i class="mdi mdi-email"></i>
-                    <span>Emails</span>
-                </a>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-map-marker"></i>
-                    <span>Map</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/map_google.html"><i class="mdi mdi-toggle-switch-off"></i>Google Map</a></li>
-                    <li><a href="pages/map_vector.html"><i class="mdi mdi-toggle-switch-off"></i>Vector Map</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-gradient"></i>
-                    <span>Extension</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/extension_fullscreen.html"><i
-                                class="mdi mdi-toggle-switch-off"></i>Fullscreen</a></li>
-                    <li><a href="pages/extension_pace.html"><i class="mdi mdi-toggle-switch-off"></i>Pace</a></li>
-                </ul>
-            </li>
-
-
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>SAMPLE PAGES</li>
-
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-cart-outline"></i>
-                    <span>Ecommerce Pages</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/ecommerce_products.html"><i class="mdi mdi-toggle-switch-off"></i>Products</a>
-                    </li>
-                    <li><a href="pages/ecommerce_cart.html"><i class="mdi mdi-toggle-switch-off"></i>Products Cart</a>
-                    </li>
-                    <li><a href="pages/ecommerce_products_edit.html"><i class="mdi mdi-toggle-switch-off"></i>Products
-                            Edit</a></li>
-                    <li><a href="pages/ecommerce_details.html"><i class="mdi mdi-toggle-switch-off"></i>Product Details</a>
-                    </li>
-                    <li><a href="pages/ecommerce_orders.html"><i class="mdi mdi-toggle-switch-off"></i>Product
-                            Orders</a></li>
-                    <li><a href="pages/ecommerce_checkout.html"><i class="mdi mdi-toggle-switch-off"></i>Products
-                            Checkout</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-account-circle"></i>
-                    <span>Authentication</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/auth_login.html"><i class="mdi mdi-toggle-switch-off"></i>Login</a></li>
-                    <li><a href="pages/auth_login2.html"><i class="mdi mdi-toggle-switch-off"></i>Login 2</a></li>
-                    <li><a href="pages/auth_register.html"><i class="mdi mdi-toggle-switch-off"></i>Register</a></li>
-                    <li><a href="pages/auth_register2.html"><i class="mdi mdi-toggle-switch-off"></i>Register 2</a></li>
-                    <li><a href="pages/auth_lockscreen.html"><i class="mdi mdi-toggle-switch-off"></i>Lockscreen</a>
-                    </li>
-                    <li><a href="pages/auth_user_pass.html"><i class="mdi mdi-toggle-switch-off"></i>Recover
-                            password</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-ungroup"></i>
-                    <span>Invoice</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/invoice.html"><i class="mdi mdi-toggle-switch-off"></i>Invoice</a></li>
-                    <li><a href="pages/invoicelist.html"><i class="mdi mdi-toggle-switch-off"></i>Invoice List</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-alert-box"></i>
-                    <span>Error Pages</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/error_400.html"><i class="mdi mdi-toggle-switch-off"></i>Error 400</a></li>
-                    <li><a href="pages/error_403.html"><i class="mdi mdi-toggle-switch-off"></i>Error 403</a></li>
-                    <li><a href="pages/error_404.html"><i class="mdi mdi-toggle-switch-off"></i>Error 404</a></li>
-                    <li><a href="pages/error_500.html"><i class="mdi mdi-toggle-switch-off"></i>Error 500</a></li>
-                    <li><a href="pages/error_503.html"><i class="mdi mdi-toggle-switch-off"></i>Error 503</a></li>
-                    <li><a href="pages/error_maintenance.html"><i class="mdi mdi-toggle-switch-off"></i>Maintenance</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-file"></i>
-                    <span>Sample Pages</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/sample_blank.html"><i class="mdi mdi-toggle-switch-off"></i>Blank</a></li>
-                    <li><a href="pages/sample_coming_soon.html"><i class="mdi mdi-toggle-switch-off"></i>Coming Soon</a>
-                    </li>
-                    <li><a href="pages/sample_custom_scroll.html"><i class="mdi mdi-toggle-switch-off"></i>Custom
-                            Scrolls</a></li>
-                    <li><a href="pages/sample_faq.html"><i class="mdi mdi-toggle-switch-off"></i>FAQ</a></li>
-                    <li><a href="pages/sample_gallery.html"><i class="mdi mdi-toggle-switch-off"></i>Gallery</a></li>
-                    <li><a href="pages/sample_lightbox.html"><i class="mdi mdi-toggle-switch-off"></i>Lightbox Popup</a>
-                    </li>
-                    <li><a href="pages/sample_pricing.html"><i class="mdi mdi-toggle-switch-off"></i>Pricing</a></li>
-                </ul>
-            </li>
-
-
-            <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>EXTRA</li>
-
-            <li class="treeview">
-                <a href="#">
-                    <i class="mdi mdi-notification-clear-all"></i>
-                    <span>Multilevel</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Level One</a></li>
-                    <li class="treeview">
-                        <a href="#">Level One
-                            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Level Two</a></li>
-                            <li class="treeview">
-                                <a href="#">Level Two
-                                    <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#">Level Three</a></li>
-                                    <li><a href="#">Level Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Level One</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="pages/auth_login.html">
-                    <i class="mdi mdi-directions"></i>
-                    <span>Log Out</span>
-                </a>
-            </li>
-
-        </ul>
-    </section>
-</aside>
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="d-flex align-items-center">
-            <div class="mr-auto">
-                <h3 class="page-title">Dashboard</h3>
-                <div class="d-inline-block align-items-center">
-                    <nav>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Control</li>
-                        </ol>
-                    </nav>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="d-flex align-items-center">
+                <div class="mr-auto">
+                    <h3 class="page-title">Dashboard</h3>
+                    <div class="d-inline-block align-items-center">
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Control</li>
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-            <div class="right-title w-170">
+                <div class="right-title w-170">
 				<span class="subheader_daterange font-weight-600" id="dashboard_daterangepicker">
 					<span class="subheader_daterange-label">
 						<span class="subheader_daterange-title"></span>
@@ -989,218 +544,219 @@
 						<i class="fa fa-angle-down"></i>
 					</a>
 				</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Main content -->
-    <section class="content">
-    @yield('content')
-    <!-- /.row -->
-    </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<footer class="main-footer">
-    <div class="pull-right d-none d-sm-inline-block">
-        <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">FAQ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Purchase Now</a>
-            </li>
+        <!-- Main content -->
+        <section class="content">
+        @yield('content')
+        <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right d-none d-sm-inline-block">
+            <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Purchase Now</a>
+                </li>
+            </ul>
+        </div>
+        &copy; 2019 <a href="https://www.multipurposethemes.com/">Multi-Purpose Themes</a>. All Rights Reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-light">
+
+        <div class="rpanel-title"><span class="btn pull-right"><i class="ion ion-close"
+                                                                  data-toggle="control-sidebar"></i></span></div>
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs control-sidebar-tabs">
+            <li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab">Tasks</a></li>
+            <li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab">General</a></li>
         </ul>
-    </div>
-    &copy; 2019 <a href="https://www.multipurposethemes.com/">Multi-Purpose Themes</a>. All Rights Reserved.
-</footer>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-birthday-cake bg-danger"></i>
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-light">
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Admin Birthday</h4>
 
-    <div class="rpanel-title"><span class="btn pull-right"><i class="ion ion-close"
-                                                              data-toggle="control-sidebar"></i></span></div>
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs control-sidebar-tabs">
-        <li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab">Tasks</a></li>
-        <li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab">General</a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <!-- Home tab content -->
-        <div class="tab-pane" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-birthday-cake bg-danger"></i>
+                                <p>Will be July 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-user bg-warning"></i>
 
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Admin Birthday</h4>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Jhone Updated His Profile</h4>
 
-                            <p>Will be July 24th</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-user bg-warning"></i>
+                                <p>New Email : jhone_doe@demo.com</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-envelope-o bg-info"></i>
 
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Jhone Updated His Profile</h4>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Disha Joined Mailing List</h4>
 
-                            <p>New Email : jhone_doe@demo.com</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-envelope-o bg-info"></i>
+                                <p>disha@demo.com</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="menu-icon fa fa-file-code-o bg-success"></i>
 
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Disha Joined Mailing List</h4>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Code Change</h4>
 
-                            <p>disha@demo.com</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-file-code-o bg-success"></i>
+                                <p>Execution time 15 Days</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
 
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Code Change</h4>
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Web Design
+                                <span class="label label-danger pull-right">40%</span>
+                            </h4>
 
-                            <p>Execution time 15 Days</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 40%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Update Data
+                                <span class="label label-success pull-right">75%</span>
+                            </h4>
 
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Web Design
-                            <span class="label label-danger pull-right">40%</span>
-                        </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-success" style="width: 75%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Order Process
+                                <span class="label label-warning pull-right">89%</span>
+                            </h4>
 
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-danger" style="width: 40%"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Update Data
-                            <span class="label label-success pull-right">75%</span>
-                        </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-warning" style="width: 89%"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <h4 class="control-sidebar-subheading">
+                                Development
+                                <span class="label label-primary pull-right">72%</span>
+                            </h4>
 
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-success" style="width: 75%"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Order Process
-                            <span class="label label-warning pull-right">89%</span>
-                        </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-primary" style="width: 72%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
 
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-warning" style="width: 89%"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Development
-                            <span class="label label-primary pull-right">72%</span>
-                        </h4>
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
 
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-primary" style="width: 72%"></div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
+                    <div class="form-group">
+                        <input type="checkbox" id="report_panel" class="chk-col-grey">
+                        <label for="report_panel" class="control-sidebar-subheading ">Report panel usage</label>
 
+                        <p>
+                            general settings information
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <input type="checkbox" id="allow_mail" class="chk-col-grey">
+                        <label for="allow_mail" class="control-sidebar-subheading ">Mail redirect</label>
+
+                        <p>
+                            Other sets of options are available
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <input type="checkbox" id="expose_author" class="chk-col-grey">
+                        <label for="expose_author" class="control-sidebar-subheading ">Expose author name</label>
+
+                        <p>
+                            Allow the user to show his name in blog posts
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                    <div class="form-group">
+                        <input type="checkbox" id="show_me_online" class="chk-col-grey">
+                        <label for="show_me_online" class="control-sidebar-subheading ">Show me as online</label>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <input type="checkbox" id="off_notifications" class="chk-col-grey">
+                        <label for="off_notifications" class="control-sidebar-subheading ">Turn off
+                            notifications</label>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            <a href="javascript:void(0)" class="text-red margin-r-5"><i class="fa fa-trash-o"></i></a>
+                            Delete chat history
+                        </label>
+                    </div>
+                    <!-- /.form-group -->
+                </form>
+            </div>
+            <!-- /.tab-pane -->
         </div>
-        <!-- /.tab-pane -->
-        <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-        <!-- /.tab-pane -->
-        <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-                <h3 class="control-sidebar-heading">General Settings</h3>
+    </aside>
+    <!-- /.control-sidebar -->
 
-                <div class="form-group">
-                    <input type="checkbox" id="report_panel" class="chk-col-grey">
-                    <label for="report_panel" class="control-sidebar-subheading ">Report panel usage</label>
-
-                    <p>
-                        general settings information
-                    </p>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <input type="checkbox" id="allow_mail" class="chk-col-grey">
-                    <label for="allow_mail" class="control-sidebar-subheading ">Mail redirect</label>
-
-                    <p>
-                        Other sets of options are available
-                    </p>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <input type="checkbox" id="expose_author" class="chk-col-grey">
-                    <label for="expose_author" class="control-sidebar-subheading ">Expose author name</label>
-
-                    <p>
-                        Allow the user to show his name in blog posts
-                    </p>
-                </div>
-                <!-- /.form-group -->
-
-                <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                <div class="form-group">
-                    <input type="checkbox" id="show_me_online" class="chk-col-grey">
-                    <label for="show_me_online" class="control-sidebar-subheading ">Show me as online</label>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <input type="checkbox" id="off_notifications" class="chk-col-grey">
-                    <label for="off_notifications" class="control-sidebar-subheading ">Turn off notifications</label>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        <a href="javascript:void(0)" class="text-red margin-r-5"><i class="fa fa-trash-o"></i></a>
-                        Delete chat history
-                    </label>
-                </div>
-                <!-- /.form-group -->
-            </form>
-        </div>
-        <!-- /.tab-pane -->
-    </div>
-</aside>
-<!-- /.control-sidebar -->
-
-<!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
-<div class="control-sidebar-bg"></div>
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
 
 </div>
 <!-- ./wrapper -->

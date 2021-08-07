@@ -6,8 +6,8 @@
             <div class="box">
                 <div class="box-header with-border">
                     <div class="d-flex align-items-center">
-                        <h1 class="box-title">دسته بندی ها</h1>
-                        <a href="{{ route('categories.create') }}" class="btn btn-success ml-15">ایجاد دسته بندی</a>
+                        <h1 class="box-title">محصولات</h1>
+                        <a href="{{ route('products.create') }}" class="btn btn-success ml-15">ایجاد محصول</a>
                     </div>
                 </div>
                 <div class="box-body">
@@ -16,22 +16,34 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>عنوان</th>
-                                <th>دسته والد</th>
+                                <th>نام</th>
+                                <th>دسته بندی</th>
+                                <th>برند</th>
+                                <th>قیمت - تومان</th>
+                                <th>تاریخ ایجاد</th>
+                                <th>تصویر</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
+                            @foreach($products as $product)
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->title }}</td>
-                                    <td>{{ optional($category->parent)->title }}</td>
-                                    <td><a href="{{ route('categories.edit', $category) }}"
+                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->category->title }}</td>
+                                    <td>{{ $product->brand->name }}</td>
+                                    <td class="text-center">{{ number_format($product->cost) }}</td>
+                                    <td class="text-center">
+                                        {{ \App\Helpers\ConvertNumbers::convertEnglishToPersian(\Hekmatinasser\Verta\Verta::instance($product->created_at)->format('H:i Y/n/j')) }}
+                                    </td>
+                                    <td class="text-center"><img
+                                            src="{{ str_replace('public', '/storage', $product->image) }}"
+                                            alt="{{ $product->name }}" width="100" height="100"></td>
+                                    <td><a href="{{ route('products.edit', $product) }}"
                                            class="btn btn-warning btn-sm">ویرایش</a></td>
                                     <td>
-                                        <form action="{{ route('categories.destroy', $category) }}" method="POST">
+                                        <form action="{{ route('products.destroy', $product) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger btn-sm" value="حذف">
@@ -43,8 +55,11 @@
                             <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>عنوان</th>
-                                <th>دسته والد</th>
+                                <th>نام</th>
+                                <th>دسته بندی</th>
+                                <th>برند</th>
+                                <th>قیمت</th>
+                                <th>تاریخ ایجاد</th>
                             </tr>
                             </tfoot>
                         </table>
