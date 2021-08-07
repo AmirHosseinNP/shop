@@ -40,7 +40,8 @@ class BrandController extends Controller
      */
     public function store(NewBrandRequest $request)
     {
-        $path = $request->file('image')->storeAs('public/images/brands', $request->file('image')->getClientOriginalName());
+        $path = $request->file('image')
+            ->storeAs('public/images/brands', $request->file('image')->getClientOriginalName());
 
         Brand::query()->create([
             'name' => $request->get('name'),
