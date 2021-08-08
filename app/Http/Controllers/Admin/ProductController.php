@@ -110,10 +110,10 @@ class ProductController extends Controller
         }
 
         if ($request->hasFile('image')) {
+            Storage::delete('/' . $product->image);
+
             $path = $request->file('image')
                 ->storeAs('public/images/products', $request->file('image')->getClientOriginalName());
-
-            Storage::delete('/' . $product->image);
         }
 
         $product->update([
@@ -137,7 +137,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        Storage::delete('/' . $product->image);
+        Storage::delete($product->image);
 
         $product->delete();
 

@@ -22,6 +22,7 @@
                                 <th>قیمت - تومان</th>
                                 <th>تاریخ ایجاد</th>
                                 <th>تصویر</th>
+                                <th>گالری</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
                             </tr>
@@ -40,6 +41,8 @@
                                     <td class="text-center"><img
                                             src="{{ str_replace('public', '/storage', $product->image) }}"
                                             alt="{{ $product->name }}" width="100" height="100"></td>
+                                    <td><a href="{{ route('products.pictures.index', $product) }}"
+                                           class="btn btn-primary btn-sm">مشاهده</a></td>
                                     <td><a href="{{ route('products.edit', $product) }}"
                                            class="btn btn-warning btn-sm">ویرایش</a></td>
                                     <td>

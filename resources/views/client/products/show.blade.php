@@ -12,10 +12,12 @@
                 <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span
                             itemprop="title"><i class="fa fa-home"></i></span></a></li>
                 <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="category.html"
-                                                                                  itemprop="url"><span itemprop="title">{{ $product->category->title }}</span></a>
+                                                                                  itemprop="url"><span
+                            itemprop="title">{{ $product->category->title }}</span></a>
                 </li>
                 <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="product.html"
-                                                                                  itemprop="url"><span itemprop="title">{{ $product->name }}</span></a>
+                                                                                  itemprop="url"><span
+                            itemprop="title">{{ $product->name }}</span></a>
                 </li>
             </ul>
             <!-- Breadcrumb End-->
@@ -26,45 +28,43 @@
                         <h1 class="title" itemprop="name">{{ $product->name }}</h1>
                         <div class="row product-info">
                             <div class="col-sm-6">
-                                <div class="image"><img class="img-responsive" itemprop="image" id="zoom_01"
+                                <div class="image">
+                                    <img class="img-responsive" itemprop="image" id="zoom_01"
                                                         src="{{ str_replace('public', '/storage', $product->image) }}"
                                                         title="{{ $product->name }}" alt="{{ $product->name }}"
-                                                        data-zoom-image="image/product/macbook_air_1-500x500.jpg"/>
+                                                        data-zoom-image="{{ str_replace('public', '/storage', $product->image) }}"/>
                                 </div>
                                 <div class="center-block text-center"><span class="zoom-gallery"><i
                                             class="fa fa-search"></i> برای مشاهده گالری روی تصویر کلیک کنید</span></div>
-                                <div class="image-additional" id="gallery_01"><a class="thumbnail" href="#"
-                                                                                 data-zoom-image="image/product/macbook_air_1-500x500.jpg"
-                                                                                 data-image="image/product/macbook_air_1-350x350.jpg"
-                                                                                 title="لپ تاپ ایلین ور"> <img
-                                            src="/client/image/product/macbook_air_1-66x66.jpg" title="لپ تاپ ایلین ور"
-                                            alt="لپ تاپ ایلین ور"/></a> <a class="thumbnail" href="#"
-                                                                           data-zoom-image="image/product/macbook_air_4-500x500.jpg"
-                                                                           data-image="image/product/macbook_air_4-350x350.jpg"
-                                                                           title="لپ تاپ ایلین ور"><img
-                                            src="/client/image/product/macbook_air_4-66x66.jpg" title="لپ تاپ ایلین ور"
-                                            alt="لپ تاپ ایلین ور"/></a> <a class="thumbnail" href="#"
-                                                                           data-zoom-image="image/product/macbook_air_2-500x500.jpg"
-                                                                           data-image="image/product/macbook_air_2-350x350.jpg"
-                                                                           title="لپ تاپ ایلین ور"><img
-                                            src="/client/image/product/macbook_air_2-66x66.jpg" title="لپ تاپ ایلین ور"
-                                            alt="لپ تاپ ایلین ور"/></a> <a class="thumbnail" href="#"
-                                                                           data-zoom-image="image/product/macbook_air_3-500x500.jpg"
-                                                                           data-image="image/product/macbook_air_3-350x350.jpg"
-                                                                           title="لپ تاپ ایلین ور"><img
-                                            src="/client/image/product/macbook_air_3-66x66.jpg" title="لپ تاپ ایلین ور"
-                                            alt="لپ تاپ ایلین ور"/></a></div>
+                                <div class="image-additional" id="gallery_01">
+                                    <a class="thumbnail" href="#"
+                                       data-zoom-image="{{ str_replace('public', '/storage', $product->image) }}"
+                                       data-image="{{ str_replace('public', '/storage', $product->image) }}"
+                                       title="{{ $product->name }}"> <img
+                                            src="{{ str_replace('public', '/storage', $product->image) }}" title="{{ $product->name }}"
+                                            alt="{{ $product->name }}"/></a>
+                                    @foreach($product->pictures as $picture)
+                                        <a class="thumbnail" href="#"
+                                           data-zoom-image="{{ str_replace('public', '/storage', $picture->path) }}"
+                                           data-image="{{ str_replace('public', '/storage', $picture->path) }}"
+                                           title="{{ $product->name }}"> <img
+                                                src="{{ str_replace('public', '/storage', $picture->path) }}" title="{{ $product->name }}"
+                                                alt="{{ $product->name }}"/></a>
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <ul class="list-unstyled description">
-                                    <li><b>برند :</b> <a href="#"><span itemprop="brand">{{ $product->brand->name }}</span></a></li>
+                                    <li><b>برند :</b> <a href="#"><span
+                                                itemprop="brand">{{ $product->brand->name }}</span></a></li>
                                     <li><b>کد محصول :</b> <span itemprop="mpn">محصول {{ $product->id }}</span></li>
                                     <li><b>امتیازات خرید:</b> 700</li>
                                     <li><b>وضعیت موجودی :</b> <span class="instock">موجود</span></li>
                                 </ul>
                                 <ul class="price-box">
                                     <li class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                        <span class="price-old">{{ number_format($product->cost) }} تومان</span> <span itemprop="price">{{ number_format($product->cost) }} تومان<span
+                                        <span class="price-old">{{ number_format($product->cost) }} تومان</span> <span
+                                            itemprop="price">{{ number_format($product->cost) }} تومان<span
                                                 itemprop="availability" content="موجود"></span></span></li>
                                     <li></li>
                                     <li>بدون مالیات : 9 میلیون تومان</li>
@@ -332,7 +332,8 @@
                             </div>
                             <div class="product-thumb">
                                 <div class="image"><a href="product.html"><img
-                                            src="/client/image/product/macbook_pro_1-200x200.jpg" alt=" کتاب آموزش باغبانی "
+                                            src="/client/image/product/macbook_pro_1-200x200.jpg"
+                                            alt=" کتاب آموزش باغبانی "
                                             title=" کتاب آموزش باغبانی " class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html"> کتاب آموزش باغبانی </a></h4>
@@ -351,9 +352,10 @@
                                 </div>
                             </div>
                             <div class="product-thumb">
-                                <div class="image"><a href="product.html"><img src="/client/image/product/macbook_1-200x200.jpg"
-                                                                               alt="آیدیا پد یوگا" title="آیدیا پد یوگا"
-                                                                               class="img-responsive"/></a></div>
+                                <div class="image"><a href="product.html"><img
+                                            src="/client/image/product/macbook_1-200x200.jpg"
+                                            alt="آیدیا پد یوگا" title="آیدیا پد یوگا"
+                                            class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html">آیدیا پد یوگا</a></h4>
                                     <p class="price"> 900000 تومان </p>
@@ -380,7 +382,8 @@
                             </div>
                             <div class="product-thumb">
                                 <div class="image"><a href="product.html"><img
-                                            src="/client/image/product/ipod_shuffle_1-200x200.jpg" alt="لپ تاپ hp پاویلیون"
+                                            src="/client/image/product/ipod_shuffle_1-200x200.jpg"
+                                            alt="لپ تاپ hp پاویلیون"
                                             title="لپ تاپ hp پاویلیون" class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html">لپ تاپ hp پاویلیون</a></h4>
@@ -419,7 +422,8 @@
                             </div>
                             <div class="product-thumb">
                                 <div class="image"><a href="product.html"><img
-                                            src="/client/image/product/ipod_shuffle_1-200x200.jpg" alt="لپ تاپ hp پاویلیون"
+                                            src="/client/image/product/ipod_shuffle_1-200x200.jpg"
+                                            alt="لپ تاپ hp پاویلیون"
                                             title="لپ تاپ hp پاویلیون" class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html">لپ تاپ hp پاویلیون</a></h4>
@@ -445,10 +449,11 @@
                     <h3 class="subtitle">پرفروش ها</h3>
                     <div class="side-item">
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/apple_cinema_30-50x50.jpg"
-                                                                           alt="تی شرت کتان مردانه"
-                                                                           title="تی شرت کتان مردانه"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/apple_cinema_30-50x50.jpg"
+                                        alt="تی شرت کتان مردانه"
+                                        title="تی شرت کتان مردانه"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">تی شرت کتان مردانه</a></h4>
                                 <p class="price"><span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span>
@@ -456,9 +461,10 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/iphone_1-50x50.jpg"
-                                                                           alt="آیفون 7" title="آیفون 7"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/iphone_1-50x50.jpg"
+                                        alt="آیفون 7" title="آیفون 7"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">آیفون 7</a></h4>
                                 <p class="price"> 2200000 تومان </p>
@@ -472,9 +478,10 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/macbook_1-50x50.jpg"
-                                                                           alt="آیدیا پد یوگا" title="آیدیا پد یوگا"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/macbook_1-50x50.jpg"
+                                        alt="آیدیا پد یوگا" title="آیدیا پد یوگا"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">آیدیا پد یوگا</a></h4>
                                 <p class="price"> 900000 تومان </p>
@@ -488,10 +495,11 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/sony_vaio_1-50x50.jpg"
-                                                                           alt="کفش راحتی مردانه"
-                                                                           title="کفش راحتی مردانه"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/sony_vaio_1-50x50.jpg"
+                                        alt="کفش راحتی مردانه"
+                                        title="کفش راحتی مردانه"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">کفش راحتی مردانه</a></h4>
                                 <p class="price"><span class="price-new">32000 تومان</span> <span class="price-old">12 میلیون تومان</span>
@@ -507,7 +515,8 @@
                         </div>
                         <div class="product-thumb clearfix">
                             <div class="image"><a href="product.html"><img
-                                        src="/client/image/product/FinePix-Long-Zoom-Camera-50x50.jpg" alt="دوربین فاین پیکس"
+                                        src="/client/image/product/FinePix-Long-Zoom-Camera-50x50.jpg"
+                                        alt="دوربین فاین پیکس"
                                         title="دوربین فاین پیکس" class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">دوربین فاین پیکس</a></h4>
@@ -528,10 +537,11 @@
                     <h3 class="subtitle">ویژه</h3>
                     <div class="side-item">
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/macbook_pro_1-50x50.jpg"
-                                                                           alt=" کتاب آموزش باغبانی "
-                                                                           title=" کتاب آموزش باغبانی "
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/macbook_pro_1-50x50.jpg"
+                                        alt=" کتاب آموزش باغبانی "
+                                        title=" کتاب آموزش باغبانی "
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">کتاب آموزش باغبانی</a></h4>
                                 <p class="price"><span class="price-new">98000 تومان</span> <span class="price-old">120000 تومان</span>
@@ -539,9 +549,10 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/samsung_tab_1-50x50.jpg"
-                                                                           alt="تبلت ایسر" title="تبلت ایسر"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/samsung_tab_1-50x50.jpg"
+                                        alt="تبلت ایسر" title="تبلت ایسر"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">تبلت ایسر</a></h4>
                                 <p class="price"><span class="price-new">98000 تومان</span> <span class="price-old">240000 تومان</span>
@@ -556,10 +567,11 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/apple_cinema_30-50x50.jpg"
-                                                                           alt="تی شرت کتان مردانه"
-                                                                           title="تی شرت کتان مردانه"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/apple_cinema_30-50x50.jpg"
+                                        alt="تی شرت کتان مردانه"
+                                        title="تی شرت کتان مردانه"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4>
                                     <a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/product&amp;product_id=42">تی
@@ -569,10 +581,11 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/nikon_d300_1-50x50.jpg"
-                                                                           alt="دوربین دیجیتال حرفه ای"
-                                                                           title="دوربین دیجیتال حرفه ای"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/nikon_d300_1-50x50.jpg"
+                                        alt="دوربین دیجیتال حرفه ای"
+                                        title="دوربین دیجیتال حرفه ای"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">دوربین دیجیتال حرفه ای</a></h4>
                                 <p class="price"><span class="price-new">92000 تومان</span> <span class="price-old">98000 تومان</span>
@@ -580,10 +593,11 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/nikon_d300_5-50x50.jpg"
-                                                                           alt="محصولات مراقبت از مو"
-                                                                           title="محصولات مراقبت از مو"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/nikon_d300_5-50x50.jpg"
+                                        alt="محصولات مراقبت از مو"
+                                        title="محصولات مراقبت از مو"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">محصولات مراقبت از مو</a></h4>
                                 <p class="price"><span class="price-new">66000 تومان</span> <span class="price-old">90000 تومان</span>
@@ -597,9 +611,10 @@
                             </div>
                         </div>
                         <div class="product-thumb clearfix">
-                            <div class="image"><a href="product.html"><img src="/client/image/product/macbook_air_1-50x50.jpg"
-                                                                           alt="لپ تاپ ایلین ور" title="لپ تاپ ایلین ور"
-                                                                           class="img-responsive"/></a></div>
+                            <div class="image"><a href="product.html"><img
+                                        src="/client/image/product/macbook_air_1-50x50.jpg"
+                                        alt="لپ تاپ ایلین ور" title="لپ تاپ ایلین ور"
+                                        class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">لپ تاپ ایلین ور</a></h4>
                                 <p class="price"><span class="price-new">10 میلیون تومان</span> <span class="price-old">12 میلیون تومان</span>
