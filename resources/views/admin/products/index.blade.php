@@ -21,6 +21,7 @@
                                 <th>برند</th>
                                 <th>قیمت - تومان</th>
                                 <th>تاریخ ایجاد</th>
+                                <th>تخفیف</th>
                                 <th>تصویر</th>
                                 <th>گالری</th>
                                 <th>ویرایش</th>
@@ -37,6 +38,22 @@
                                     <td class="text-center">{{ number_format($product->cost) }}</td>
                                     <td class="text-center">
                                         {{ \App\Helpers\ConvertNumbers::convertEnglishToPersian(\Hekmatinasser\Verta\Verta::instance($product->created_at)->format('H:i Y/n/j')) }}
+                                    </td>
+                                    <td class="text-center">
+                                        @if($product->discount)
+                                            <p>%{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian($product->discount->value) }}</p>
+                                            <a href="{{ route('products.discounts.edit', ['product' => $product, 'discount' => $product->discount]) }}" class="btn btn-warning btn-sm">ویرایش</a>
+                                            <form class="d-inline" action="{{ route('products.discounts.destroy', ['product' => $product, 'discount' => $product->discount]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" value="حذف" class="btn btn-danger btn-sm">
+                                            </form>
+                                        @else
+                                            <a href="{{ route('products.discounts.create', $product) }}"
+                                               class="btn btn-success btn-sm">
+                                                اعمال
+                                            </a>
+                                        @endif
                                     </td>
                                     <td class="text-center"><img
                                             src="{{ str_replace('public', '/storage', $product->image) }}"
@@ -63,6 +80,7 @@
                                 <th>برند</th>
                                 <th>قیمت</th>
                                 <th>تاریخ ایجاد</th>
+                                <th>تخفیف</th>
                             </tr>
                             </tfoot>
                         </table>

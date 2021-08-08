@@ -28,6 +28,11 @@ class Product extends Model
         return $this->hasMany(Picture::class);
     }
 
+    public function discount()
+    {
+        return $this->hasOne(Discount::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
@@ -51,5 +56,39 @@ class Product extends Model
         Storage::delete($picture->path);
 
         $picture->delete();
+    }
+
+    public function addDiscount(Request $request)
+    {
+        if (!$this->discount()->exists()) {
+            $this->discount()->create([
+                'value' => $request->get('value')
+            ]);
+        } else {
+            $this->discount->update([
+               'value' => $request->get('value')
+            ]);
+        }
+    }
+
+    public function updateDiscount(Request $request)
+    {
+        $this->discount->update([
+            'value' => $request->get('value')
+        ]);
+    }
+
+    public function deleteDiscount()
+    {
+        $this->discount->delete();
+    }
+
+    public function costWithDiscount()
+    {
+        if (!$this->discount()->exists()) {
+            return $this->cost;
+        }
+
+        return $this->cost - $this->cost * $this->discount->value / 100;
     }
 }
