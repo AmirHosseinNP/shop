@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\ProductController;
@@ -40,6 +41,7 @@ Route::prefix('/adminpanel')->group(function () {
     Route::resource('brands', BrandController::class);
     Route::resource('products', ProductController::class);
     Route::resource('products.pictures', PictureController::class);
+    Route::resource('products.discounts', DiscountController::class);
 });
 
 

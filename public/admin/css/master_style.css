@@ -68,7 +68,9 @@ import icon and fonts Styles
 
 Body :		'Nunito Sans', sans-serif;
 -------------------------------------------------------------------*/
-
+* {
+    font-size: 15px;
+}
 /*Body, layout*/
 .layout-boxed body, .layout-boxed html, .wrapper, body, html {
     height: 100%}
@@ -80,7 +82,7 @@ Body :		'Nunito Sans', sans-serif;
 	background-color: #f2f3f8;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, body, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: Vazir, sans-serif;
 	line-height: 1.5;
 	text-shadow: none;
 }
@@ -97,7 +99,7 @@ body {
     font-weight: 400;
 	font-size: 13px;
 	color: #3e5569;
-	font-family: 'Nunito Sans', sans-serif;
+	font-family: vazir, sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
     /*color: #455a64;*/
@@ -352,7 +354,7 @@ a:active, a:focus, a:hover {
     line-height: 60px;
     text-align: left;
     width: 250px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Vazir, Helvetica, Arial, sans-serif;
     padding: 0 15px;
     font-weight: 300;
 }
@@ -6215,7 +6217,7 @@ ul.panel-actions > li:first-child {
 }
 
 .badge-bold {
-  font-family: Roboto, sans-serif;
+  font-family: Vazir, sans-serif;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
@@ -8581,7 +8583,7 @@ ul.flexbox {
     margin-bottom: 0;
 }
 .control {
-    font-family: arial;
+    font-family: Vazir;
     display: inline;
     padding-left: 0;
     padding-top: 0;
@@ -10117,7 +10119,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 }
 
 .btn-bold {
-  font-family: Roboto, sans-serif;
+  font-family: Vazir, sans-serif;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
@@ -11794,7 +11796,7 @@ button.btn.dropdown-toggle::after, .wysihtml5-toolbar .btn.dropdown-toggle::afte
 .btn-flat {
   position: relative;
   font-size: 13px;
-  font-family: Roboto, sans-serif;
+  font-family: Vazir, sans-serif;
   background-color: #fcfdfe;
   border: none;
   letter-spacing: 1px;
@@ -15649,7 +15651,7 @@ hr {
 .grid-stack-item-content {
   background: #ffffff;
   color: #2b2b2b;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: vazir, sans-serif;
   text-align: center;
   font-size: 20px;
 }

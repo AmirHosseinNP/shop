@@ -1307,9 +1307,16 @@
                                                 alt="{{ $product->name }}"
                                                 title="کرم مو آقایان" class="img-responsive"/></a></div>
                                     <div class="caption">
-                                        <h4><a href="{{ route('client.products.show', $product) }}">{{ $product->name }}</a>
+                                        <h4>
+                                            <a href="{{ route('client.products.show', $product) }}">{{ $product->name }}</a>
                                         </h4>
-                                        <p class="price">  {{ number_format($product->cost) }} تومان</p>
+                                        <p class="price">
+                                            <span class="price-new">{{ number_format($product->costWithDiscount()) }} تومان </span><br/>
+                                            @if($product->discount()->exists())
+                                                <span class="price-old">{{ number_format($product->cost) }} تومان </span>
+                                                <span class="saving">-{{ $product->discount->value }}%</span>
+                                            @endif
+                                        </p>
                                         <div class="rating"><span class="fa fa-stack"><i
                                                     class="fa fa-star fa-stack-2x"></i><i
                                                     class="fa fa-star-o fa-stack-2x"></i></span> <span
@@ -1339,9 +1346,10 @@
 
                     <div id="carousel" class="owl-carousel nxt">
                         @foreach($brands as $brand)
-                        <div class="item text-center"><a href="#"><img
-                                    src="{{ str_replace('public', '/storage', $brand->image) }}" alt="{{ $brand->name }}"
-                                    class="img-responsive"/></a></div>
+                            <div class="item text-center"><a href="#"><img
+                                        src="{{ str_replace('public', '/storage', $brand->image) }}"
+                                        alt="{{ $brand->name }}"
+                                        class="img-responsive"/></a></div>
                         @endforeach
                     </div>
                     <!-- Brand Logo Carousel End -->
