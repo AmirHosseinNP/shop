@@ -1311,10 +1311,10 @@
                                             <a href="{{ route('client.products.show', $product) }}">{{ $product->name }}</a>
                                         </h4>
                                         <p class="price">
-                                            <span class="price-new">{{ number_format($product->costWithDiscount()) }} تومان </span><br/>
-                                            @if($product->discount()->exists())
+                                            <span class="price-new">{{ number_format($product->cost_with_discount) }} تومان </span><br/>
+                                            @if($product->has_discount)
                                                 <span class="price-old">{{ number_format($product->cost) }} تومان </span>
-                                                <span class="saving">-{{ $product->discount->value }}%</span>
+                                                <span class="saving">-{{ $product->discount_value }}%</span>
                                             @endif
                                         </p>
                                         <div class="rating"><span class="fa fa-stack"><i

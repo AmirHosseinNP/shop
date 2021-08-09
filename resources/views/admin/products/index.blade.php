@@ -40,8 +40,8 @@
                                         {{ \App\Helpers\ConvertNumbers::convertEnglishToPersian(\Hekmatinasser\Verta\Verta::instance($product->created_at)->format('H:i Y/n/j')) }}
                                     </td>
                                     <td class="text-center">
-                                        @if($product->discount)
-                                            <p>%{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian($product->discount->value) }}</p>
+                                        @if($product->has_discount)
+                                            <p>%{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian($product->discount_value) }}</p>
                                             <a href="{{ route('products.discounts.edit', ['product' => $product, 'discount' => $product->discount]) }}" class="btn btn-warning btn-sm">ویرایش</a>
                                             <form class="d-inline" action="{{ route('products.discounts.destroy', ['product' => $product, 'discount' => $product->discount]) }}" method="POST">
                                                 @csrf

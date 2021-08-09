@@ -63,11 +63,11 @@
                                 </ul>
                                 <ul class="price-box">
                                     <li class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                                        @if($product->discount()->exists())
+                                        @if($product->has_discount)
                                         <span class="price-old">{{ number_format($product->cost) }} تومان</span>
                                         @endif
                                         <span itemprop="price">
-                                            {{ number_format($product->costWithDiscount()) }} تومان
+                                            {{ number_format($product->cost_with_discount) }} تومان
                                             <span itemprop="availability" content="موجود"></span>
                                         </span>
                                     </li>

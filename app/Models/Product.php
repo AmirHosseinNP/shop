@@ -38,7 +38,8 @@ class Product extends Model
         return 'slug';
     }
 
-    public function addPicture(Request $request) {
+    public function addPicture(Request $request)
+    {
         $path = $request->file('image')->storeAs(
             'public/images/products/pictures',
             $request->file('image')->getClientOriginalName()
@@ -66,7 +67,7 @@ class Product extends Model
             ]);
         } else {
             $this->discount->update([
-               'value' => $request->get('value')
+                'value' => $request->get('value')
             ]);
         }
     }
@@ -83,12 +84,26 @@ class Product extends Model
         $this->discount->delete();
     }
 
-    public function costWithDiscount()
+    public function getCostWithDiscountAttribute()
     {
         if (!$this->discount()->exists()) {
             return $this->cost;
         }
 
         return $this->cost - $this->cost * $this->discount->value / 100;
+    }
+
+    public function getHasDiscountAttribute()
+    {
+        return $this->discount()->exists();
+    }
+
+    public function getDiscountValueAttribute()
+    {
+        if ($this->has_discount) {
+            return $this->discount->value;
+        }
+
+        return null;
     }
 }
