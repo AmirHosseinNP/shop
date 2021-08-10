@@ -505,6 +505,22 @@
                     </ul>
                 </li>
 
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>نقش‌ها</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('roles.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('roles.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="pages/auth_login.html">
                         <i class="mdi mdi-directions"></i>
