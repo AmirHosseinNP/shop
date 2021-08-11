@@ -157,7 +157,7 @@ class PermissionSeeder extends Seeder
         //dashbord permissions
         Permission::query()->insert([
             [
-                'title' => 'view-category',
+                'title' => 'view-dashboard',
                 'label' => 'مشاهده داشبورد'
             ]
         ]);

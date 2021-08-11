@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="format-detection" content="telephone=no" />
+    <meta charset="UTF-8"/>
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="/client/image/favicon.png" rel="icon" />
+    <link href="/client/image/favicon.png" rel="icon"/>
     <title>مارکت شاپ - قالب HTML فروشگاهی</title>
     <meta name="description" content="Responsive and clean html template design for any kind of ecommerce webshop">
     <!-- CSS Part Start-->
-    <link rel="stylesheet" type="text/css" href="/client/js/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/client/js/bootstrap/css/bootstrap-rtl.min.css" />
-    <link rel="stylesheet" type="text/css" href="/client/css/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/client/css/stylesheet.css" />
-    <link rel="canonical" href="http://www.onescript.ir" />
-    <link rel="stylesheet" type="text/css" href="/client/css/owl.carousel.css" />
-    <link rel="stylesheet" type="text/css" href="/client/css/owl.transitions.css" />
-    <link rel="stylesheet" type="text/css" href="/client/css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="/client/css/stylesheet-rtl.css" />
-    <link rel="stylesheet" type="text/css" href="/client/css/responsive-rtl.css" />
+    <link rel="stylesheet" type="text/css" href="/client/js/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/js/bootstrap/css/bootstrap-rtl.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/stylesheet.css"/>
+    <link rel="canonical" href="http://www.onescript.ir"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/owl.carousel.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/owl.transitions.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/stylesheet-rtl.css"/>
+    <link rel="stylesheet" type="text/css" href="/client/css/responsive-rtl.css"/>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
     @yield('links')
 </head>
@@ -27,12 +27,14 @@
         <!-- Top Bar Start-->
         <nav id="top" class="htop">
             <div class="container">
-                <div class="row"> <span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>
+                <div class="row"><span class="drop-icon visible-sm visible-xs"><i
+                            class="fa fa-align-justify"></i></span>
                     <div class="pull-left flip left-top">
                         <div class="links">
                             <ul>
                                 <li class="mobile"><i class="fa fa-phone"></i>+21 9898777656</li>
-                                <li class="email"><a href="mailto:info@marketshop.com"><i class="fa fa-envelope"></i>info@marketshop.com</a></li>
+                                <li class="email"><a href="mailto:info@marketshop.com"><i class="fa fa-envelope"></i>info@marketshop.com</a>
+                                </li>
                                 <li class="wrap_custom_block hidden-sm hidden-xs"><a>بلاک سفارشی<b></b></a>
                                     <div class="dropdown-menu custom_block">
                                         <ul>
@@ -48,12 +50,18 @@
                                                         <td><h4>قالب واکنش گرا</h4></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html نوشتاری یا تصویری را در آن قرار دهید.</td>
-                                                        <td>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html نوشتاری یا تصویری را در آن قرار دهید.</td>
+                                                        <td>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html
+                                                            نوشتاری یا تصویری را در آن قرار دهید.
+                                                        </td>
+                                                        <td>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html
+                                                            نوشتاری یا تصویری را در آن قرار دهید.
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><strong><a class="btn btn-default btn-sm" href="#">ادامه مطلب</a></strong></td>
-                                                        <td><strong><a class="btn btn-default btn-sm" href="#">ادامه مطلب</a></strong></td>
+                                                        <td><strong><a class="btn btn-default btn-sm" href="#">ادامه
+                                                                    مطلب</a></strong></td>
+                                                        <td><strong><a class="btn btn-default btn-sm" href="#">ادامه
+                                                                    مطلب</a></strong></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -66,35 +74,57 @@
                             </ul>
                         </div>
                         <div id="language" class="btn-group">
-                            <button class="btn-link dropdown-toggle" data-toggle="dropdown"> <span> <img src="/client/image/flags/gb.png" alt="انگلیسی" title="انگلیسی">انگلیسی <i class="fa fa-caret-down"></i></span></button>
+                            <button class="btn-link dropdown-toggle" data-toggle="dropdown"><span> <img
+                                        src="/client/image/flags/gb.png" alt="انگلیسی" title="انگلیسی">انگلیسی <i
+                                        class="fa fa-caret-down"></i></span></button>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <button class="btn btn-link btn-block language-select" type="button" name="GB"><img src="/client/image/flags/gb.png" alt="انگلیسی" title="انگلیسی" /> انگلیسی</button>
+                                    <button class="btn btn-link btn-block language-select" type="button" name="GB"><img
+                                            src="/client/image/flags/gb.png" alt="انگلیسی" title="انگلیسی"/> انگلیسی
+                                    </button>
                                 </li>
                                 <li>
-                                    <button class="btn btn-link btn-block language-select" type="button" name="GB"><img src="/client/image/flags/ar.png" alt="عربی" title="عربی" /> عربی</button>
+                                    <button class="btn btn-link btn-block language-select" type="button" name="GB"><img
+                                            src="/client/image/flags/ar.png" alt="عربی" title="عربی"/> عربی
+                                    </button>
                                 </li>
                             </ul>
                         </div>
                         <div id="currency" class="btn-group">
-                            <button class="btn-link dropdown-toggle" data-toggle="dropdown"> <span> تومان <i class="fa fa-caret-down"></i></span></button>
+                            <button class="btn-link dropdown-toggle" data-toggle="dropdown"><span> تومان <i
+                                        class="fa fa-caret-down"></i></span></button>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€ Euro</button>
+                                    <button class="currency-select btn btn-link btn-block" type="button" name="EUR">€
+                                        Euro
+                                    </button>
                                 </li>
                                 <li>
-                                    <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£ Pound Sterling</button>
+                                    <button class="currency-select btn btn-link btn-block" type="button" name="GBP">£
+                                        Pound Sterling
+                                    </button>
                                 </li>
                                 <li>
-                                    <button class="currency-select btn btn-link btn-block" type="button" name="USD">$ USD</button>
+                                    <button class="currency-select btn btn-link btn-block" type="button" name="USD">$
+                                        USD
+                                    </button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div id="top-links" class="nav pull-right flip">
                         <ul>
-                            <li><a href="login.html">ورود</a></li>
-                            <li><a href="register.html">ثبت نام</a></li>
+                            @auth()
+                                <li>
+                                    <form action="{{ route('client.logout') }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="خروج" style="background: transparent; border: 0;">
+                                    </form>
+                                </li>
+                            @else
+                                <li><a href="{{ route('client.register') }}">ورود/ثبت نام</a></li>
+                            @endauth
                         </ul>
                     </div>
                 </div>
@@ -107,13 +137,15 @@
                 <div class="table-container">
                     <!-- Logo Start -->
                     <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-                        <div id="logo"><a href="index.html"><img class="img-responsive" src="/client/image/logo.png" title="MarketShop" alt="MarketShop" /></a></div>
+                        <div id="logo"><a href="index.html"><img class="img-responsive" src="/client/image/logo.png"
+                                                                 title="MarketShop" alt="MarketShop"/></a></div>
                     </div>
                     <!-- Logo End -->
                     <!-- Mini Cart Start-->
                     <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div id="cart">
-                            <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="heading dropdown-toggle">
+                            <button type="button" data-toggle="dropdown" data-loading-text="Loading..."
+                                    class="heading dropdown-toggle">
                                 <span class="cart-icon pull-left flip"></span>
                                 <span id="cart-total">2 آیتم - 132000 تومان</span></button>
                             <ul class="dropdown-menu">
@@ -121,18 +153,32 @@
                                     <table class="table">
                                         <tbody>
                                         <tr>
-                                            <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="کفش راحتی مردانه" alt="کفش راحتی مردانه" src="/client/image/product/sony_vaio_1-50x50.jpg"></a></td>
+                                            <td class="text-center"><a href="product.html"><img class="img-thumbnail"
+                                                                                                title="کفش راحتی مردانه"
+                                                                                                alt="کفش راحتی مردانه"
+                                                                                                src="/client/image/product/sony_vaio_1-50x50.jpg"></a>
+                                            </td>
                                             <td class="text-left"><a href="product.html">کفش راحتی مردانه</a></td>
                                             <td class="text-right">x 1</td>
                                             <td class="text-right">32000 تومان</td>
-                                            <td class="text-center"><button class="btn btn-danger btn-xs remove" title="حذف" onClick="" type="button"><i class="fa fa-times"></i></button></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-danger btn-xs remove" title="حذف" onClick=""
+                                                        type="button"><i class="fa fa-times"></i></button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="تبلت ایسر" alt="تبلت ایسر" src="/client/image/product/samsung_tab_1-50x50.jpg"></a></td>
+                                            <td class="text-center"><a href="product.html"><img class="img-thumbnail"
+                                                                                                title="تبلت ایسر"
+                                                                                                alt="تبلت ایسر"
+                                                                                                src="/client/image/product/samsung_tab_1-50x50.jpg"></a>
+                                            </td>
                                             <td class="text-left"><a href="product.html">تبلت ایسر</a></td>
                                             <td class="text-right">x 1</td>
                                             <td class="text-right">98000 تومان</td>
-                                            <td class="text-center"><button class="btn btn-danger btn-xs remove" title="حذف" onClick="" type="button"><i class="fa fa-times"></i></button></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-danger btn-xs remove" title="حذف" onClick=""
+                                                        type="button"><i class="fa fa-times"></i></button>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -159,7 +205,10 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <p class="checkout"><a href="cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> مشاهده سبد</a>&nbsp;&nbsp;&nbsp;<a href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i> تسویه حساب</a></p>
+                                        <p class="checkout"><a href="cart.html" class="btn btn-primary"><i
+                                                    class="fa fa-shopping-cart"></i> مشاهده سبد</a>&nbsp;&nbsp;&nbsp;<a
+                                                href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i>
+                                                تسویه حساب</a></p>
                                     </div>
                                 </li>
                             </ul>
@@ -169,7 +218,8 @@
                     <!-- جستجو Start-->
                     <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
                         <div id="search" class="input-group">
-                            <input id="filter_name" type="text" name="search" value="" placeholder="جستجو" class="form-control input-lg" />
+                            <input id="filter_name" type="text" name="search" value="" placeholder="جستجو"
+                                   class="form-control input-lg"/>
                             <button type="button" class="button-search"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
@@ -179,11 +229,11 @@
         </header>
         <!-- Header End-->
         <!-- Main آقایانu Start-->
-        @include('client.layout.menu')
-        <!-- Main آقایانu End-->
+    @include('client.layout.menu')
+    <!-- Main آقایانu End-->
     </div>
-    @yield('content')
-    <!--Footer Start-->
+@yield('content')
+<!--Footer Start-->
     <footer id="footer">
         <div class="fpart-first">
             <div class="container">
@@ -193,7 +243,8 @@
                         <ul>
                             <li class="address"><i class="fa fa-map-marker"></i>میدان تایمز، شماره 77، نیویورک</li>
                             <li class="mobile"><i class="fa fa-phone"></i>+21 9898777656</li>
-                            <li class="email"><i class="fa fa-envelope"></i>برقراری ارتباط از طریق <a href="contact-us.html">تماس با ما</a>
+                            <li class="email"><i class="fa fa-envelope"></i>برقراری ارتباط از طریق <a
+                                    href="contact-us.html">تماس با ما</a>
                         </ul>
                     </div>
                     <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
@@ -238,34 +289,71 @@
             <div class="container">
                 <div id="powered" class="clearfix">
                     <div class="powered_text pull-left flip">
-                        <p>کپی رایت © 2016 فروشگاه شما | پارسی سازی و ویرایش توسط <a href="http://onescript.ir" target="_blank">وان اسکریپت</a></p>
+                        <p>کپی رایت © 2016 فروشگاه شما | پارسی سازی و ویرایش توسط <a href="http://onescript.ir"
+                                                                                     target="_blank">وان اسکریپت</a></p>
                     </div>
-                    <div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>
+                    <div class="social pull-right flip"><a href="#" target="_blank"> <img data-toggle="tooltip"
+                                                                                          src="/client/image/socialicons/facebook.png"
+                                                                                          alt="Facebook"
+                                                                                          title="Facebook"></a> <a
+                            href="#" target="_blank"> <img data-toggle="tooltip"
+                                                           src="/client/image/socialicons/twitter.png" alt="Twitter"
+                                                           title="Twitter"> </a> <a href="#" target="_blank"> <img
+                                data-toggle="tooltip" src="/client/image/socialicons/google_plus.png" alt="Google+"
+                                title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip"
+                                                                                        src="/client/image/socialicons/pinterest.png"
+                                                                                        alt="Pinterest"
+                                                                                        title="Pinterest"> </a> <a
+                            href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/socialicons/rss.png"
+                                                           alt="RSS" title="RSS"> </a></div>
                 </div>
                 <div class="bottom-row">
                     <div class="custom-text text-center">
-                        <p>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html نوشتاری یا تصویری را در آن قرار دهید. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                        <p>این یک بلاک مدیریت محتواست. شما میتوانید هر نوع محتوای html نوشتاری یا تصویری را در آن قرار
+                            دهید. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                            گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                            فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
                     </div>
-                    <div class="payments_types"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/payment/payment_american.png" alt="american-express" title="American Express"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/payment/payment_discover.png" alt="discover" title="Discover"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="/client/image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a> </div>
+                    <div class="payments_types"><a href="#" target="_blank"> <img data-toggle="tooltip"
+                                                                                  src="/client/image/payment/payment_paypal.png"
+                                                                                  alt="paypal" title="PayPal"></a> <a
+                            href="#" target="_blank"> <img data-toggle="tooltip"
+                                                           src="/client/image/payment/payment_american.png"
+                                                           alt="american-express" title="American Express"></a> <a
+                            href="#" target="_blank"> <img data-toggle="tooltip"
+                                                           src="/client/image/payment/payment_2checkout.png"
+                                                           alt="2checkout" title="2checkout"></a> <a href="#"
+                                                                                                     target="_blank">
+                            <img data-toggle="tooltip" src="/client/image/payment/payment_maestro.png" alt="maestro"
+                                 title="Maestro"></a> <a href="#" target="_blank"> <img data-toggle="tooltip"
+                                                                                        src="/client/image/payment/payment_discover.png"
+                                                                                        alt="discover" title="Discover"></a>
+                        <a href="#" target="_blank"> <img data-toggle="tooltip"
+                                                          src="/client/image/payment/payment_mastercard.png"
+                                                          alt="mastercard" title="MasterCard"></a></div>
                 </div>
             </div>
         </div>
-        <div id="back-top"><a data-toggle="tooltip" title="بازگشت به بالا" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
+        <div id="back-top"><a data-toggle="tooltip" title="بازگشت به بالا" href="javascript:void(0)"
+                              class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
     </footer>
     <!--Footer End-->
     <!-- Facebook Side Block Start -->
     <div id="facebook" class="fb-left sort-order-1">
         <div class="facebook_icon"><i class="fa fa-facebook"></i></div>
-        <div class="fb-page" data-href="https://www.facebook.com/harnishdesign/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false">
+        <div class="fb-page" data-href="https://www.facebook.com/harnishdesign/" data-small-header="true"
+             data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false">
             <div class="fb-xfbml-parse-ignore">
-                <blockquote cite="https://www.facebook.com/harnishdesign/"><a href="https://www.facebook.com/harnishdesign/">هارنیش دیزاین</a></blockquote>
+                <blockquote cite="https://www.facebook.com/harnishdesign/"><a
+                        href="https://www.facebook.com/harnishdesign/">هارنیش دیزاین</a></blockquote>
             </div>
         </div>
         <div id="fb-root"></div>
-        <script>(function(d, s, id) {
+        <script>(function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
+                js = d.createElement(s);
+                js.id = id;
                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
@@ -274,8 +362,18 @@
     <!-- Twitter Side Block Start -->
     <div id="twitter_footer" class="twit-left sort-order-2">
         <div class="twitter_icon"><i class="fa fa-twitter"></i></div>
-        <a class="twitter-timeline" href="https://twitter.com/" data-chrome="nofooter noscrollbar transparent" data-theme="light" data-tweet-limit="2" data-related="twitterapi,twitter" data-aria-polite="assertive" data-widget-id="347621595801608192">توییت های @</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <a class="twitter-timeline" href="https://twitter.com/" data-chrome="nofooter noscrollbar transparent"
+           data-theme="light" data-tweet-limit="2" data-related="twitterapi,twitter" data-aria-polite="assertive"
+           data-widget-id="347621595801608192">توییت های @</a>
+        <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + "://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");</script>
     </div>
     <!-- Twitter Side Block End -->
     <!-- Video Side Block Start -->
@@ -288,7 +386,7 @@
     <!-- Video Side Block End -->
     <!-- Custom Side Block Start -->
     <div id="custom_side_block" class="custom_side_block_left sort-order-4">
-        <div class="custom_side_block_icon"> <i class="fa fa-chevron-right"></i> </div>
+        <div class="custom_side_block_icon"><i class="fa fa-chevron-right"></i></div>
         <table>
             <tbody>
             <tr>
