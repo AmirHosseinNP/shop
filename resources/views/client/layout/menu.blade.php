@@ -14,11 +14,11 @@
                                             <li>
                                                 <a href="#">
                                                     {{ $childCategory->title }}
-                                                    @if(count($childCategory->children) > 0)
+                                                    @if($childCategory->has_children)
                                                         <span>&rsaquo;</span>
                                                     @endif
                                                 </a>
-                                                @if(count($childCategory->children) > 0)
+                                                @if($childCategory->has_children)
                                                     <div class="dropdown-menu">
                                                         <ul>
                                                             @foreach($childCategory->children as $subCategory)
@@ -92,7 +92,7 @@
                     <div class="dropdown-menu">
                         <ul>
                             <li><a href="login.html">ورود</a></li>
-                            <li><a href="register.html">ثبت نام</a></li>
+                            <li><a href="{{ route('client.register') }}">ثبت نام</a></li>
                             <li><a href="category.html">دسته بندی (شبکه/لیست)</a></li>
                             <li><a href="product.html">محصولات</a></li>
                             <li><a href="cart.html">سبد خرید</a></li>

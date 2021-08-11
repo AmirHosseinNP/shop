@@ -30,21 +30,29 @@ class Category extends Model
 
     public function getAllSubcategoryProducts()
     {
-        $l2_categories = $this->children;
-        $categoriesToShow = collect([]);
+        $categoriesWithProducts = collect([]);
 
-        foreach ($l2_categories as $l2_category) {
-            if (!$l2_category->children->all()) {
-                $categoriesToShow->push($l2_category);
+        if ($this->products()->exists()) {
+            $categoriesWithProducts->push($this->id);
+        }
+
+        foreach ($this->children as $childCategory) {
+            if ($childCategory->products()->exists()) {
+                $categoriesWithProducts->push($childCategory->id);
             }
 
-            foreach ($l2_category->children as $l3_category) {
-                $categoriesToShow->push($l3_category);
+            foreach ($childCategory->children as $subCategory) {
+                if ($subCategory->products()->exists()) {
+                    $categoriesWithProducts->push($subCategory->id);
+                }
             }
         }
 
-        $categoriesToShow = $categoriesToShow->pluck('id');
+        return Product::query()->whereIn('category_id', $categoriesWithProducts)->get();
+    }
 
-        return Product::query()->whereIn('category_id', $categoriesToShow)->get();
+    public function getHasChildrenAttribute()
+    {
+        return $this->children()->count() > 0;
     }
 }
