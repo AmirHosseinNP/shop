@@ -45,7 +45,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="index.html" class="logo">
+        <a href="/adminpanel" class="logo">
             <!-- mini logo -->
             <div class="logo-mini">
                 <span class="light-logo"><img src="/admin/images/logo-light.png" alt="logo"></span>
@@ -459,22 +459,6 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-apps"></i>
-                        <span>محصولات</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="{{ route('products.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
-                        </li>
-                        <li><a href="{{ route('products.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="mdi mdi-apps"></i>
                         <span>دسته بندی‌ ها</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -508,14 +492,49 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-apps"></i>
-                        <span>کاربران</span>
+                        <span>گروه‌های ویژگی</span>
                         <span class="pull-right-container">
-                            <i class="fa fa-angle-right pull-right"></i>
-                         </span>
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li>
-                            <a href="{{ route('users.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        <li><a href="{{ route('propertyGroups.create') }}"><i
+                                    class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('propertyGroups.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>ویژگی‌ها</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('properties.create') }}"><i
+                                    class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('properties.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>محصولات</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('products.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                        <li><a href="{{ route('products.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
                         </li>
                     </ul>
                 </li>
@@ -532,6 +551,21 @@
                         <li><a href="{{ route('roles.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
                         </li>
                         <li><a href="{{ route('roles.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>کاربران</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                         </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{{ route('users.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
                         </li>
                     </ul>
                 </li>

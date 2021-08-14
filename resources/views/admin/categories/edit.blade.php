@@ -31,7 +31,23 @@
                                    value="{{ $category->title }}">
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="ویرایش" class="btn btn-primary">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label class="mb-15">گروه‌های ویژگی را انتخاب کنید:</label>
+                                </div>
+                                @foreach($propertyGroups as $propertyGroup)
+                                    <div class="col-sm-4">
+                                        <input
+                                            @if($category->hasPropertyGroup($propertyGroup->title)) checked @endif
+                                            value="{{ $propertyGroup->id }}" type="checkbox" name="property_groups[]"
+                                            id="{{ $propertyGroup->title }}">
+                                        <label for="{{ $propertyGroup->title }}">{{ $propertyGroup->title }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ثبت" class="btn btn-primary">
                         </div>
                     </form>
                     @include('admin.layout.errors')

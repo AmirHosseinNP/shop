@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\NewCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -27,7 +28,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create', ['categories' => Category::all()]);
+        return view('admin.categories.create', [
+            'categories' => Category::all(),
+            'propertyGroups' => PropertyGroup::all()
+        ]);
     }
 
     /**
@@ -47,10 +51,12 @@ class CategoryController extends Controller
             return redirect()->back()->withErrors(['This category already exists']);
         }
 
-        Category::query()->create([
+        $category = Category::query()->create([
             'title' => $request->get('title'),
             'category_id' => $request->get('category_id')
         ]);
+
+        $category->propertyGroups()->attach($request->get('property_groups'));
 
         return redirect(route('categories.index'));
     }
@@ -76,7 +82,8 @@ class CategoryController extends Controller
     {
         return view('admin.categories.edit', [
             'categories' => Category::all(),
-            'category' => $category
+            'category' => $category,
+            'propertyGroups' => PropertyGroup::all()
         ]);
     }
 
@@ -91,17 +98,19 @@ class CategoryController extends Controller
     {
         $categoryExists = Category::query()
             ->where('title', $request->get('title'))
-            ->where('category_id' , $request->get('category_id'))
+            ->where('id' , '!=', $category->id)
             ->exists();
 
         if ($categoryExists) {
-            return redirect()->back()->withErrors(['This category already exists']);
+            return redirect()->back()->withErrors(['title' => 'این دسته بندی وجود دارد']);
         }
 
         $category->update([
             'title' => $request->get('title'),
             'category_id' => $request->get('category_id')
         ]);
+
+        $category->propertyGroups()->sync($request->get('property_groups'));
 
         return redirect(route('categories.index'));
     }
@@ -119,6 +128,8 @@ class CategoryController extends Controller
         if ($reltaedExists) {
             return  redirect()->back()->withErrors(['این یک دسته بندی والد است و قابل حذف نیست']);
         }
+
+        $category->propertyGroups()->detach();
 
         $category->delete();
 
