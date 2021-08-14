@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\PictureController;
+use App\Http\Controllers\Admin\ProductPropertyController;
+use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\PropertyGroupController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Client\RegisterController;
@@ -55,17 +58,26 @@ Route::prefix('/adminpanel')
     ->middleware(['auth', 'checkPermission:view-dashboard'])
     ->group(function () {
 
-    Route::get('/', function () {
-        return view('admin.home');
-    });
+        Route::get('/', function () {
+            return view('admin.home');
+        });
 
-    Route::resource('categories', CategoryController::class);
-    Route::resource('brands', BrandController::class);
-    Route::resource('products', ProductController::class);
-    Route::resource('products.pictures', PictureController::class);
-    Route::resource('products.discounts', DiscountController::class);
-    Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
-});
+        Route::resource('categories', CategoryController::class);
+        Route::resource('brands', BrandController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('products.pictures', PictureController::class);
+        Route::resource('products.discounts', DiscountController::class);
+        Route::get('/products/{product}/properties', [ProductPropertyController::class, 'index'])
+            ->name('products.properties.index');
+        Route::get('/products/{product}/properties/create', [ProductPropertyController::class, 'create'])
+            ->name('products.properties.create');
+        Route::post('/products/{product}/properties', [ProductPropertyController::class, 'store'])
+            ->name('products.properties.store');
+        Route::resource('propertyGroups', PropertyGroupController::class);
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', UserController::class);
+        Route::resource('properties', PropertyController::class);
+
+    });
 
 

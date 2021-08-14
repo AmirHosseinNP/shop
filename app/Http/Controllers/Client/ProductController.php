@@ -13,7 +13,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         return view('client.products.show', [
-            'product' => $product
+            'product' => $product,
+            'propertyGroups' => $product->category->propertyGroups
         ]);
     }
 }

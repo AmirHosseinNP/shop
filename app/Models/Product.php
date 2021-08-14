@@ -106,4 +106,22 @@ class Product extends Model
 
         return null;
     }
+
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class)
+            ->withPivot(['value'])
+            ->withTimestamps();
+    }
+
+    public function getPropertyValue(Property $property)
+    {
+        $propertyValueQuery = $this->properties()->where('property_id', $property->id);
+
+        if (!$propertyValueQuery->exists()) {
+            return null;
+        }
+
+        return $propertyValueQuery->first()->pivot->value;
+    }
 }

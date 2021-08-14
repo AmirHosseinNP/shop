@@ -21,8 +21,9 @@
                                 <th>برند</th>
                                 <th>قیمت - تومان</th>
                                 <th>تاریخ ایجاد</th>
-                                <th>تخفیف</th>
                                 <th>تصویر</th>
+                                <th>تخفیف</th>
+                                <th>ویژگی‌ها</th>
                                 <th>گالری</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
@@ -40,10 +41,20 @@
                                         {{ \App\Helpers\ConvertNumbers::convertEnglishToPersian(\Hekmatinasser\Verta\Verta::instance($product->created_at)->format('H:i Y/n/j')) }}
                                     </td>
                                     <td class="text-center">
+                                        <img
+                                            src="{{ str_replace('public', '/storage', $product->image) }}"
+                                            alt="{{ $product->name }}" width="100" height="100">
+                                    </td>
+                                    <td class="text-center">
                                         @if($product->has_discount)
-                                            <p>%{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian($product->discount_value) }}</p>
-                                            <a href="{{ route('products.discounts.edit', ['product' => $product, 'discount' => $product->discount]) }}" class="btn btn-warning btn-sm">ویرایش</a>
-                                            <form class="d-inline" action="{{ route('products.discounts.destroy', ['product' => $product, 'discount' => $product->discount]) }}" method="POST">
+                                            <p>
+                                                %{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian($product->discount_value) }}
+                                            </p>
+                                            <a href="{{ route('products.discounts.edit', ['product' => $product, 'discount' => $product->discount]) }}"
+                                               class="btn btn-warning btn-sm">ویرایش</a>
+                                            <form class="d-inline"
+                                                  action="{{ route('products.discounts.destroy', ['product' => $product, 'discount' => $product->discount]) }}"
+                                                  method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input type="submit" value="حذف" class="btn btn-danger btn-sm">
@@ -55,13 +66,19 @@
                                             </a>
                                         @endif
                                     </td>
-                                    <td class="text-center"><img
-                                            src="{{ str_replace('public', '/storage', $product->image) }}"
-                                            alt="{{ $product->name }}" width="100" height="100"></td>
-                                    <td><a href="{{ route('products.pictures.index', $product) }}"
-                                           class="btn btn-primary btn-sm">مشاهده</a></td>
-                                    <td><a href="{{ route('products.edit', $product) }}"
-                                           class="btn btn-warning btn-sm">ویرایش</a></td>
+                                    <td>
+                                        <a
+                                            class="btn btn-sm btn-primary"
+                                            href="{{ route('products.properties.index', $product) }}">مشاهده</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('products.pictures.index', $product) }}"
+                                           class="btn btn-primary btn-sm">مشاهده</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('products.edit', $product) }}"
+                                           class="btn btn-warning btn-sm">ویرایش</a>
+                                    </td>
                                     <td>
                                         <form action="{{ route('products.destroy', $product) }}" method="POST">
                                             @csrf

@@ -30,9 +30,9 @@
                             <div class="col-sm-6">
                                 <div class="image">
                                     <img class="img-responsive" itemprop="image" id="zoom_01"
-                                                        src="{{ str_replace('public', '/storage', $product->image) }}"
-                                                        title="{{ $product->name }}" alt="{{ $product->name }}"
-                                                        data-zoom-image="{{ str_replace('public', '/storage', $product->image) }}"/>
+                                         src="{{ str_replace('public', '/storage', $product->image) }}"
+                                         title="{{ $product->name }}" alt="{{ $product->name }}"
+                                         data-zoom-image="{{ str_replace('public', '/storage', $product->image) }}"/>
                                 </div>
                                 <div class="center-block text-center"><span class="zoom-gallery"><i
                                             class="fa fa-search"></i> برای مشاهده گالری روی تصویر کلیک کنید</span></div>
@@ -41,14 +41,16 @@
                                        data-zoom-image="{{ str_replace('public', '/storage', $product->image) }}"
                                        data-image="{{ str_replace('public', '/storage', $product->image) }}"
                                        title="{{ $product->name }}"> <img
-                                            src="{{ str_replace('public', '/storage', $product->image) }}" title="{{ $product->name }}"
+                                            src="{{ str_replace('public', '/storage', $product->image) }}"
+                                            title="{{ $product->name }}"
                                             alt="{{ $product->name }}"/></a>
                                     @foreach($product->pictures as $picture)
                                         <a class="thumbnail" href="#"
                                            data-zoom-image="{{ str_replace('public', '/storage', $picture->path) }}"
                                            data-image="{{ str_replace('public', '/storage', $picture->path) }}"
                                            title="{{ $product->name }}"> <img
-                                                src="{{ str_replace('public', '/storage', $picture->path) }}" title="{{ $product->name }}"
+                                                src="{{ str_replace('public', '/storage', $picture->path) }}"
+                                                title="{{ $product->name }}"
                                                 alt="{{ $product->name }}"/></a>
                                     @endforeach
                                 </div>
@@ -64,7 +66,7 @@
                                 <ul class="price-box">
                                     <li class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                                         @if($product->has_discount)
-                                        <span class="price-old">{{ number_format($product->cost) }} تومان</span>
+                                            <span class="price-old">{{ number_format($product->cost) }} تومان</span>
                                         @endif
                                         <span itemprop="price">
                                             {{ number_format($product->cost_with_discount) }} تومان
@@ -169,32 +171,25 @@
                                 </div>
                             </div>
                             <div id="tab-specification" class="tab-pane">
-                                <table class="table table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <td colspan="2"><strong>حافظه</strong></td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>تست 1</td>
-                                        <td>8gb</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <td colspan="2"><strong>پردازشگر</strong></td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>تعداد هسته</td>
-                                        <td>1</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                @foreach($propertyGroups as $group)
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="2">{{ $group->title }}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($product->properties as $property)
+                                            @if($property->propertyGroup->id == $group->id)
+                                                <tr>
+                                                    <td>{{ $property->title }}</td>
+                                                    <td>{{ $product->getPropertyValue($property) }}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                @endforeach
                             </div>
                             <div id="tab-review" class="tab-pane">
                                 <form class="form-horizontal">
@@ -641,20 +636,20 @@
     <script type="text/javascript">
         // Elevate Zoom for Product Page image
         $("#zoom_01").elevateZoom({
-            gallery:'gallery_01',
+            gallery: 'gallery_01',
             cursor: 'pointer',
             galleryActiveClass: 'active',
             imageCrossfade: true,
             zoomWindowFadeIn: 500,
             zoomWindowFadeOut: 500,
-            zoomWindowPosition : 11,
+            zoomWindowPosition: 11,
             lensFadeIn: 500,
             lensFadeOut: 500,
             loadingIcon: 'image/progress.gif'
         });
         //////pass the images to swipebox
-        $("#zoom_01").bind("click", function(e) {
-            var ez =   $('#zoom_01').data('elevateZoom');
+        $("#zoom_01").bind("click", function (e) {
+            var ez = $('#zoom_01').data('elevateZoom');
             $.swipebox(ez.getGalleryList());
             return false;
         });
