@@ -9,12 +9,14 @@ use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\PropertyGroupController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\CommentController;
 use App\Http\Controllers\Client\RegisterController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
 use App\Http\Middleware\CheckPermission;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,9 @@ Route::prefix('')->name('client.')->group(function () {
     //product showing route
     Route::get('/products/{product}', [ClientProductController::class, 'show'])
         ->name('products.show');
+
+    Route::post('/products/{product}/comments', [CommentController::class, 'store'])
+        ->name('products.comments.store');
 
     Route::get('/register', [RegisterController::class, 'create'])
         ->name('register');
@@ -73,6 +78,10 @@ Route::prefix('/adminpanel')
             ->name('products.properties.create');
         Route::post('/products/{product}/properties', [ProductPropertyController::class, 'store'])
             ->name('products.properties.store');
+        Route::get('/products/{product}/comments', [AdminCommentController::class, 'index'])
+            ->name('products.comments.index');
+        Route::delete('/products/{product}/comments/{comment}', [AdminCommentController::class, 'destroy'])
+            ->name('products.comments.destroy');
         Route::resource('propertyGroups', PropertyGroupController::class);
         Route::resource('roles', RoleController::class);
         Route::resource('users', UserController::class);

@@ -148,7 +148,8 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab-description" data-toggle="tab">توضیحات</a></li>
                             <li><a href="#tab-specification" data-toggle="tab">مشخصات</a></li>
-                            <li><a href="#tab-review" data-toggle="tab">بررسی (2)</a></li>
+                            <li><a href="#tab-review" data-toggle="tab">بررسی ({{ $product->comments->count() }})</a>
+                            </li>
                         </ul>
                         <div class="tab-content">
                             <div itemprop="description" id="tab-description" class="tab-pane active">
@@ -192,20 +193,23 @@
                                 @endforeach
                             </div>
                             <div id="tab-review" class="tab-pane">
-                                <form class="form-horizontal">
-                                    <div id="review">
-                                        <div>
+                                <div id="review">
+                                    <div>
+                                        @foreach($product->comments()->latest()->get() as $comment)
                                             <table class="table table-striped table-bordered">
                                                 <tbody>
                                                 <tr>
-                                                    <td style="width: 50%;"><strong><span>هاروی</span></strong></td>
-                                                    <td class="text-right"><span>1395/1/20</span></td>
+                                                    <td style="width: 50%;">
+                                                        <strong><span>{{ $comment->user->name }}</span></strong>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        @php(\Carbon\Carbon::setLocale('fa_IR'))
+                                                        <span>{{ $comment->updated_at->diffForHumans() }}</span>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2"><p>ارائه راهکارها و شرایط سخت تایپ به پایان رسد
-                                                            وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی
-                                                            سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                                                            گیرد.</p>
+                                                    <td colspan="2">
+                                                        <p>{{ $comment->content }}</p>
                                                         <div class="rating"><span class="fa fa-stack"><i
                                                                     class="fa fa-star fa-stack-2x"></i><i
                                                                     class="fa fa-star-o fa-stack-2x"></i></span> <span
@@ -219,84 +223,34 @@
                                                                     class="fa fa-star fa-stack-2x"></i><i
                                                                     class="fa fa-star-o fa-stack-2x"></i></span> <span
                                                                 class="fa fa-stack"><i
-                                                                    class="fa fa-star fa-stack-2x"></i><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span></div>
+                                                                    class="fa fa-star-o fa-stack-2x"></i></span>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <table class="table table-striped table-bordered">
-                                                <tbody>
-                                                <tr>
-                                                    <td style="width: 50%;"><strong><span>اندرسون</span></strong></td>
-                                                    <td class="text-right"><span>1395/1/20</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><p>ارائه راهکارها و شرایط سخت تایپ به پایان رسد
-                                                            وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی
-                                                            سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                                                            گیرد.</p>
-                                                        <div class="rating"><span class="fa fa-stack"><i
-                                                                    class="fa fa-star fa-stack-2x"></i><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                                class="fa fa-stack"><i
-                                                                    class="fa fa-star fa-stack-2x"></i><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                                class="fa fa-stack"><i
-                                                                    class="fa fa-star fa-stack-2x"></i><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                                class="fa fa-stack"><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                                                class="fa fa-stack"><i
-                                                                    class="fa fa-star-o fa-stack-2x"></i></span></div>
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="text-right"></div>
+                                        @endforeach
                                     </div>
+                                    <div class="text-right"></div>
+                                </div>
+                                @auth()
                                     <h2>یک بررسی بنویسید</h2>
-                                    <div class="form-group required">
-                                        <div class="col-sm-12">
-                                            <label for="input-name" class="control-label">نام شما</label>
-                                            <input type="text" class="form-control" id="input-name" value=""
-                                                   name="name">
+                                    <form action="{{ route('client.products.comments.store', $product) }}"
+                                          method="POST">
+                                        @csrf
+                                        <div class="form-group required">
+                                            <label for="content">بررسی شما</label>
+                                            <textarea style="resize: vertical; min-height: 200px;" name="content"
+                                                      id="content" class="form-control"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <div class="col-sm-12">
-                                            <label for="input-review" class="control-label">بررسی شما</label>
-                                            <textarea class="form-control" id="input-review" rows="5"
-                                                      name="text"></textarea>
-                                            <div class="help-block"><span class="text-danger">توجه :</span> HTML
-                                                بازگردانی نخواهد شد!
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="ثبت دیدگاه" class="btn btn-lg btn-success">
                                         </div>
-                                    </div>
-                                    <div class="form-group required">
-                                        <div class="col-sm-12">
-                                            <label class="control-label">رتبه</label>
-                                            &nbsp;&nbsp;&nbsp; بد&nbsp;
-                                            <input type="radio" value="1" name="rating">
-                                            &nbsp;
-                                            <input type="radio" value="2" name="rating">
-                                            &nbsp;
-                                            <input type="radio" value="3" name="rating">
-                                            &nbsp;
-                                            <input type="radio" value="4" name="rating">
-                                            &nbsp;
-                                            <input type="radio" value="5" name="rating">
-                                            &nbsp;خوب
-                                        </div>
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="pull-right">
-                                            <button class="btn btn-primary" id="button-review" type="button">ادامه
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                @else
+                                    <a href="{{ route('client.register') }}" class="text-danger">برای ثبت دیدگاه باید به
+                                        حساب خود وارد شوید</a>
+                                @endauth
                             </div>
                         </div>
                         <h3 class="subtitle">محصولات مرتبط</h3>
@@ -307,9 +261,11 @@
                                             title="تبلت ایسر" class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html">تبلت ایسر</a></h4>
-                                    <p class="price"><span class="price-new">98000 تومان</span> <span class="price-old">240000 تومان</span>
+                                    <p class="price"><span class="price-new">98000 تومان</span> <span
+                                            class="price-old">240000 تومان</span>
                                         <span class="saving">-5%</span></p>
-                                    <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                    <div class="rating"><span class="fa fa-stack"><i
+                                                class="fa fa-star fa-stack-2x"></i><i
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
                                             class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
@@ -317,7 +273,8 @@
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
                                             class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                            class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
+                                            class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                    </div>
                                 </div>
                                 <div class="button-group">
                                     <button class="btn-primary" type="button" onClick=""><span>افزودن به سبد</span>
@@ -325,7 +282,8 @@
                                     <div class="add-to-links">
                                         <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
                                                 onClick=""><i class="fa fa-heart"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه" onClick="">
+                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
+                                                onClick="">
                                             <i class="fa fa-exchange"></i></button>
                                     </div>
                                 </div>
@@ -337,7 +295,8 @@
                                             title=" کتاب آموزش باغبانی " class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html"> کتاب آموزش باغبانی </a></h4>
-                                    <p class="price"><span class="price-new">98000 تومان</span> <span class="price-old">120000 تومان</span>
+                                    <p class="price"><span class="price-new">98000 تومان</span> <span
+                                            class="price-old">120000 تومان</span>
                                         <span class="saving">-26%</span></p>
                                 </div>
                                 <div class="button-group">
@@ -346,7 +305,8 @@
                                     <div class="add-to-links">
                                         <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
                                                 onClick=""><i class="fa fa-heart"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه" onClick="">
+                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
+                                                onClick="">
                                             <i class="fa fa-exchange"></i></button>
                                     </div>
                                 </div>
@@ -359,7 +319,8 @@
                                 <div class="caption">
                                     <h4><a href="product.html">آیدیا پد یوگا</a></h4>
                                     <p class="price"> 900000 تومان </p>
-                                    <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                    <div class="rating"><span class="fa fa-stack"><i
+                                                class="fa fa-star fa-stack-2x"></i><i
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
                                             class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
@@ -367,7 +328,8 @@
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
                                             class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
                                                 class="fa fa-star-o fa-stack-2x"></i></span> <span
-                                            class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
+                                            class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                    </div>
                                 </div>
                                 <div class="button-group">
                                     <button class="btn-primary" type="button" onClick=""><span>افزودن به سبد</span>
@@ -375,7 +337,8 @@
                                     <div class="add-to-links">
                                         <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
                                                 onClick=""><i class="fa fa-heart"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه" onClick="">
+                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
+                                                onClick="">
                                             <i class="fa fa-exchange"></i></button>
                                     </div>
                                 </div>
@@ -395,18 +358,21 @@
                                     <div class="add-to-links">
                                         <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
                                                 onClick=""><i class="fa fa-heart"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه" onClick="">
+                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
+                                                onClick="">
                                             <i class="fa fa-exchange"></i></button>
                                     </div>
                                 </div>
                             </div>
                             <div class="product-thumb">
                                 <div class="image"><a href="product.html"><img
-                                            src="/client/image/product/ipod_touch_1-200x200.jpg" alt="سامسونگ گلکسی s7"
+                                            src="/client/image/product/ipod_touch_1-200x200.jpg"
+                                            alt="سامسونگ گلکسی s7"
                                             title="سامسونگ گلکسی s7" class="img-responsive"/></a></div>
                                 <div class="caption">
                                     <h4><a href="product.html">سامسونگ گلکسی s7</a></h4>
-                                    <p class="price"><span class="price-new">62000 تومان</span> <span class="price-old">122000 تومان</span>
+                                    <p class="price"><span class="price-new">62000 تومان</span> <span
+                                            class="price-old">122000 تومان</span>
                                         <span class="saving">-50%</span></p>
                                 </div>
                                 <div class="button-group">
@@ -415,7 +381,8 @@
                                     <div class="add-to-links">
                                         <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
                                                 onClick=""><i class="fa fa-heart"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه" onClick="">
+                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
+                                                onClick="">
                                             <i class="fa fa-exchange"></i></button>
                                     </div>
                                 </div>
@@ -435,7 +402,8 @@
                                     <div class="add-to-links">
                                         <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
                                                 onClick=""><i class="fa fa-heart"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه" onClick="">
+                                        <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
+                                                onClick="">
                                             <i class="fa fa-exchange"></i></button>
                                     </div>
                                 </div>
@@ -456,7 +424,8 @@
                                         class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">تی شرت کتان مردانه</a></h4>
-                                <p class="price"><span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span>
+                                <p class="price"><span class="price-new">110000 تومان</span> <span
+                                        class="price-old">122000 تومان</span>
                                     <span class="saving">-10%</span></p>
                             </div>
                         </div>
@@ -469,11 +438,15 @@
                                 <h4><a href="product.html">آیفون 7</a></h4>
                                 <p class="price"> 2200000 تومان </p>
                                 <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
                         </div>
@@ -486,11 +459,15 @@
                                 <h4><a href="product.html">آیدیا پد یوگا</a></h4>
                                 <p class="price"> 900000 تومان </p>
                                 <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
                         </div>
@@ -505,11 +482,15 @@
                                 <p class="price"><span class="price-new">32000 تومان</span> <span class="price-old">12 میلیون تومان</span>
                                     <span class="saving">-25%</span></p>
                                 <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
                         </div>
@@ -528,8 +509,10 @@
                         <h3 class="subtitle">محتوای سفارشی</h3>
                         <p>این یک بلاک محتواست. هر نوع محتوایی شامل html، نوشته یا تصویر را میتوانید در آن قرار
                             دهید. </p>
-                        <p> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
-                            پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+                        <p> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                            به
+                            پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل
+                            دنیای
                             موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                             است.</p>
@@ -558,11 +541,15 @@
                                 <p class="price"><span class="price-new">98000 تومان</span> <span class="price-old">240000 تومان</span>
                                     <span class="saving">-5%</span></p>
                                 <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star fa-stack-2x"></i><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span>
                                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
                         </div>
@@ -576,7 +563,8 @@
                                 <h4>
                                     <a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/product&amp;product_id=42">تی
                                         شرت کتان مردانه</a></h4>
-                                <p class="price"><span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span>
+                                <p class="price"><span class="price-new">110000 تومان</span> <span
+                                        class="price-old">122000 تومان</span>
                                     <span class="saving">-10%</span></p>
                             </div>
                         </div>
@@ -603,10 +591,14 @@
                                 <p class="price"><span class="price-new">66000 تومان</span> <span class="price-old">90000 تومان</span>
                                     <span class="saving">-27%</span></p>
                                 <div class="rating"><span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
-                                            class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
+                                            class="fa fa-star-o fa-stack-2x"></i></span> <span
+                                        class="fa fa-stack"><i
                                             class="fa fa-star-o fa-stack-2x"></i></span></div>
                             </div>
                         </div>
@@ -617,7 +609,8 @@
                                         class="img-responsive"/></a></div>
                             <div class="caption">
                                 <h4><a href="product.html">لپ تاپ ایلین ور</a></h4>
-                                <p class="price"><span class="price-new">10 میلیون تومان</span> <span class="price-old">12 میلیون تومان</span>
+                                <p class="price"><span class="price-new">10 میلیون تومان</span> <span
+                                        class="price-old">12 میلیون تومان</span>
                                     <span class="saving">-5%</span></p>
                             </div>
                         </div>
