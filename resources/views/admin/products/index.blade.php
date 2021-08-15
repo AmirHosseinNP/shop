@@ -25,6 +25,7 @@
                                 <th>تخفیف</th>
                                 <th>ویژگی‌ها</th>
                                 <th>گالری</th>
+                                <th>کامنت‌ها</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
                             </tr>
@@ -73,6 +74,10 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('products.pictures.index', $product) }}"
+                                           class="btn btn-primary btn-sm">مشاهده</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('products.comments.index', $product) }}"
                                            class="btn btn-primary btn-sm">مشاهده</a>
                                     </td>
                                     <td>
