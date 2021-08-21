@@ -1183,7 +1183,9 @@
                                         </button>
                                         <div class="add-to-links">
                                             <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"
-                                                    onClick=""><i class="fa fa-heart"></i></button>
+                                                    onClick="like(this, '{{ $product->slug }}')">
+                                                <i class="fa fa-heart @if(optional(auth()->user())->hasLiked($product)) like-active @endif"></i>
+                                            </button>
                                             <button type="button" data-toggle="tooltip" title="افزودن به مقایسه"
                                                     onClick=""><i class="fa fa-exchange"></i></button>
                                         </div>

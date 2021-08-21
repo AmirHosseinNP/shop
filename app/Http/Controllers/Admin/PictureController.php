@@ -89,6 +89,6 @@ class PictureController extends Controller
     {
         $product->deletePicture($picture);
 
-        return redirect()->back();
+        return response(['message' => 'record deleted.']);
     }
 }

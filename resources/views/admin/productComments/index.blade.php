@@ -30,7 +30,7 @@
                                     <td>{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian(\Hekmatinasser\Verta\Verta::instance($comment->updated_at)->format('H:i Y/n/j')) }}</td>
                                     <td>{{ $comment->content }}</td>
                                     <td>
-                                        <form action="{{ route('products.comments.destroy', ['product' => $product, 'comment' => $comment]) }}" method="POST">
+                                        <form action="{{ route('products.comments.destroy', $comment) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger btn-sm" value="حذف">

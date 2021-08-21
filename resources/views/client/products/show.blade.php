@@ -103,8 +103,9 @@
                                             </button>
                                         </div>
                                         <div>
-                                            <button type="button" class="wishlist" onClick=""><i
-                                                    class="fa fa-heart"></i> افزودن به علاقه مندی ها
+                                            <button type="button" class="wishlist" onClick="like(this, '{{ $product->slug }}')">
+                                                <i class="fa fa-heart @if(optional(auth()->user())->hasLiked($product)) like-active @endif"></i>
+                                                افزودن به علاقه مندی ها
                                             </button>
                                             <br/>
                                             <button type="button" class="wishlist" onClick=""><i

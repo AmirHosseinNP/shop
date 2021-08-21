@@ -43,6 +43,12 @@ class Product extends Model
         return 'slug';
     }
 
+    public function usersWhoLiked()
+    {
+        return $this->belongsToMany(User::class, 'likes')
+            ->withTimestamps();
+    }
+
     public function addPicture(Request $request)
     {
         $path = $request->file('image')->storeAs(

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PropertyGroupController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Client\CommentController;
+use App\Http\Controllers\Client\LikeController;
 use App\Http\Controllers\Client\RegisterController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\ProductController;
@@ -56,6 +57,14 @@ Route::prefix('')->name('client.')->group(function () {
     Route::delete('/logout', [RegisterController::class, 'logout'])
         ->name('logout');
 
+    Route::get('/likes', [LikeController::class, 'index'])
+        ->name('likes.index');
+
+    Route::post('/likes/{product}', [LikeController::class, 'store'])
+        ->name('likes.store');
+
+    Route::delete('/likes/{product}', [LikeController::class, 'destroy'])
+        ->name('likes.destroy');
 });
 
 //admin routes
@@ -80,7 +89,7 @@ Route::prefix('/adminpanel')
             ->name('products.properties.store');
         Route::get('/products/{product}/comments', [AdminCommentController::class, 'index'])
             ->name('products.comments.index');
-        Route::delete('/products/{product}/comments/{comment}', [AdminCommentController::class, 'destroy'])
+        Route::delete('/comments/{comment}', [AdminCommentController::class, 'destroy'])
             ->name('products.comments.destroy');
         Route::resource('propertyGroups', PropertyGroupController::class);
         Route::resource('roles', RoleController::class);

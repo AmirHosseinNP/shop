@@ -20,6 +20,11 @@
     <link rel="stylesheet" type="text/css" href="/client/css/responsive-rtl.css"/>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
     @yield('links')
+    <style>
+        .like-active {
+            color: red !important;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper-wide">
@@ -69,7 +74,16 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="#">لیست علاقه مندی (0)</a></li>
+                                @auth
+                                    <li>
+                                        <a href="{{ route('client.likes.index') }}">
+                                            لیست علاقه‌مندی‌ها
+                                            <span id="likes-count">
+                                                ({{ auth()->user()->likedProducts->count() }})
+                                            </span>
+                                        </a>
+                                    </li>
+                                @endauth
                                 <li><a href="checkout.html">تسویه حساب</a></li>
                             </ul>
                         </div>
@@ -413,6 +427,25 @@
 <script type="text/javascript" src="/client/js/jquery.dcjqaccordion.min.js"></script>
 <script type="text/javascript" src="/client/js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="/client/js/custom.js"></script>
+<script>
+    function like(btn, productSlug) {
+        @auth
+        $.ajax(
+            {
+                url: '/likes/' + productSlug,
+                type: 'POST',
+                data: {"_token": "{{ csrf_token()}}"},
+                success: function (data) {
+                    btn.children[0].classList.toggle('like-active');
+                    $('#likes-count').html('(' + data.likes_count + ')');
+                }
+            }
+        );
+        @else
+            window.location.href = "{{ route('client.register') }}";
+        @endauth
+    }
+</script>
 <!-- JS Part End-->
 @yield('scripts')
 </body>

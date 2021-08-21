@@ -16,7 +16,7 @@ class CommentController extends Controller
         ]);
     }
 
-    public function destroy(Product $product, Comment $comment)
+    public function destroy(Comment $comment)
     {
         $comment->delete();
 
