@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductPropertyController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\PropertyGroupController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Client\CommentController;
 use App\Http\Controllers\Client\LikeController;
@@ -95,7 +96,7 @@ Route::prefix('/adminpanel')
         Route::resource('roles', RoleController::class);
         Route::resource('users', UserController::class);
         Route::resource('properties', PropertyController::class);
-
+        Route::resource('sliders', SliderController::class);
     });
 
 
