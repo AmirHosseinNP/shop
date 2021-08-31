@@ -291,7 +291,7 @@
                         @foreach($featuredCategory->getAllSubcategoryProducts() as $product)
                             <div class="product-thumb clearfix">
                                 <div class="image">
-                                    <a href="{{ route('products.show', $product) }}">
+                                    <a href="{{ route('client.products.show', $product) }}">
                                         <img
                                             src="{{ str_replace('public', '/storage', $product->image) }}"
                                             alt="{{ $product->name }}"
@@ -299,7 +299,7 @@
                                     </a>
                                 </div>
                                 <div class="caption">
-                                    <h4><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></h4>
+                                    <h4><a href="{{ route('client.products.show', $product) }}">{{ $product->name }}</a></h4>
                                     <p class="price">
                                         <span
                                             class="price-new">{{ number_format($product->cost_with_discount) }} تومان </span>
