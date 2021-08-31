@@ -14,8 +14,10 @@ class CreateFeaturedCategoriesTable extends Migration
     public function up()
     {
         Schema::create('featured_categories', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
+
+            $table->primary('category_id');
         });
     }
 

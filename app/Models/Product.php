@@ -38,15 +38,15 @@ class Product extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public function usersWhoLiked()
     {
         return $this->belongsToMany(User::class, 'likes')
             ->withTimestamps();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
     public function addPicture(Request $request)

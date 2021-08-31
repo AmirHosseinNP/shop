@@ -52,7 +52,7 @@
                                                 %{{ \App\Helpers\ConvertNumbers::convertEnglishToPersian($product->discount_value) }}
                                             </p>
                                             <a href="{{ route('products.discounts.edit', ['product' => $product, 'discount' => $product->discount]) }}"
-                                               class="btn btn-warning btn-sm">ویرایش</a>
+                                               class="btn btn-warning btn-sm mb-5">ویرایش</a>
                                             <form class="d-inline"
                                                   action="{{ route('products.discounts.destroy', ['product' => $product, 'discount' => $product->discount]) }}"
                                                   method="POST">

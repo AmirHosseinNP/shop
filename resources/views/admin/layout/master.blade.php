@@ -468,7 +468,12 @@
                         <li><a href="{{ route('categories.create') }}"><i
                                     class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
                         </li>
-                        <li><a href="{{ route('categories.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+
+                        <li><a href="{{ route('categories.index') }}" id="categories-index"><i
+                                    class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                        <li><a href="{{ route('featuredCategory.create') }}">
+                                <i class="mdi mdi-toggle-switch-off"></i>انتخاب
+                                دسته بندی ویژه</a>
                         </li>
                     </ul>
                 </li>
@@ -885,6 +890,9 @@
 
 <!-- Superieur Admin for demo purposes -->
 <script src="/admin/js/demo.js"></script>
+
+<!-- Superieur Admin for Data Table -->
+<script src="/admin/js/pages/data-table.js"></script>
 
 @yield('scripts')
 

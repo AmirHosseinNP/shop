@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\Admin\FeaturedCategoryController;
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\ProductPropertyController;
 use App\Http\Controllers\Admin\PropertyController;
@@ -97,6 +98,11 @@ Route::prefix('/adminpanel')
         Route::resource('users', UserController::class);
         Route::resource('properties', PropertyController::class);
         Route::resource('sliders', SliderController::class);
+        Route::get('/featuredCategory/create', [FeaturedCategoryController::class, 'create'])
+            ->name('featuredCategory.create');
+        Route::post('/featuredCategory', [FeaturedCategoryController::class, 'store'])
+            ->name('featuredCategory.store');
+
     });
 
 

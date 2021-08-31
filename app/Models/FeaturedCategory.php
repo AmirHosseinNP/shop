@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class FeaturedCategory extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public $incrementing = false;
+
+    protected $primaryKey = 'category_id';
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public static function getCategory() {
+        return optional(FeaturedCategory::query()->first())->category;
+    }
+
 }
