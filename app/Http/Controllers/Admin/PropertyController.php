@@ -47,6 +47,8 @@ class PropertyController extends Controller
            'property_group_id' => $request->get('property_group_id')
         ]);
 
+        session()->flash('success', 'ویژگی جدید با موفقیت ایجاد شد');
+
         return redirect(route('properties.index'));
     }
 
@@ -89,6 +91,8 @@ class PropertyController extends Controller
             'property_group_id' => $request->get('property_group_id')
         ]);
 
+        session()->flash('success', 'ویژگی با موفقیت ویرایش شد');
+
         return redirect(route('properties.index'));
     }
 
@@ -101,7 +105,7 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
 //        $property->delete();
-
+        session()->flash('success', 'ویژگی با موفقیت حذف شد');
 //        return redirect(route('properties.index'));
     }
 }

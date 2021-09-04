@@ -66,27 +66,39 @@
                 data: formData,
                 processData: false,
                 contentType: false,
-                success: function (slider) {
+                success: function (response) {
                     let prepend =
-                        '<div class="col-md-12 col-lg-3" id="slide-' + slider.id + '">' +
+                        '<div class="col-md-12 col-lg-3" id="slide-' + response.slider.id + '">' +
                             '<div class="card">' +
                                 '<img class="card-img-top img-responsive"' +
-                                    'src="' + slider.image.replace("public", "/storage") + '" alt="slider-' + slider.id + '">' +
+                                    'src="' + response.slider.image.replace("public", "/storage") + '" alt="response.slider-' + response.slider.id + '">' +
                                 '<div class="card-body">' +
                                     '<div class="row">' +
                                         '<div class="col-sm-6">' +
-                                            '<a href="/adminpanel/sliders/' + slider.id + '/edit"' + 'class="btn btn-warning mb-10" style="width: 100%;">ویرایش</a>' +
+                                            '<a href="/adminpanel/sliders/' + response.slider.id + '/edit"' + 'class="btn btn-warning mb-10" style="width: 100%;">ویرایش</a>' +
                                         '</div>' +
                                         '<div class="col-sm-6">' +
-                                            '<button style="width: 100%;" class="btn btn-danger" onclick="deleteRecord(' + slider.id + ')">حذف</button>' +
+                                            '<button style="width: 100%;" class="btn btn-danger" onclick="deleteRecord(' + response.slider.id + ')">حذف</button>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +
                             '</div>' +
                         '</div>';
+
+                    let alert =
+                        '<div id="alerttopleft" class="myadmin-alert myadmin-alert-img alert-success myadmin-alert-top-left py-20 px-30">' +
+                            '<a href="#" class="closed">&times;</a>' +
+                            '<p class="mb-0">' + response.success + '</p>' +
+                        '</div>';
+
                     $('#sliders-container').prepend(prepend);
                     $('input[name=image]').val("");
                     $('input[name=link]').val("");
+                    $('.content').prepend(alert);
+                    $('#alerttopleft').fadeIn();
+                    $('.closed').click(() => {
+                        $('#alerttopleft').fadeOut();
+                    });
                 }
             });
         });
@@ -97,8 +109,19 @@
                         url: '/adminpanel/sliders/' + sliderId,
                         type: 'DELETE',
                         data: {"_token": "{{ csrf_token() }}"},
-                        success: function () {
+                        success: function (response) {
+                            let alert =
+                                '<div id="alerttopleft" class="myadmin-alert myadmin-alert-img alert-success myadmin-alert-top-left py-20 px-30">' +
+                                    '<a href="#" class="closed">&times;</a>' +
+                                    '<p class="mb-0">' + response.success + '</p>' +
+                                '</div>';
+
                             $('#slide-' + sliderId).remove();
+                            $('.content').prepend(alert);
+                            $('#alerttopleft').fadeIn();
+                            $('.closed').click(() => {
+                                $('#alerttopleft').fadeOut();
+                            });
                         }
                     }
                 )

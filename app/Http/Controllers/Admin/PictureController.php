@@ -42,6 +42,8 @@ class PictureController extends Controller
     {
         $product->addPicture($request);
 
+        session()->flash('success', 'تصویر با موفقیت اضافه شد');
+
         return redirect()->back();
     }
 
@@ -88,6 +90,8 @@ class PictureController extends Controller
     public function destroy(Product $product, Picture $picture)
     {
         $product->deletePicture($picture);
+
+        session()->flash('success', 'تصویر با موفقیت حذف شد');
 
         return response(['message' => 'record deleted.']);
     }

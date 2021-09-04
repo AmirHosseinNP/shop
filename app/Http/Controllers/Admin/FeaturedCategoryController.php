@@ -47,6 +47,8 @@ class FeaturedCategoryController extends Controller
             'category_id' => $request->get('category_id')
         ]);
 
+        session()->flash('success', 'دسته بندی ویژه با موفقیت انتخاب شد');
+
         return redirect(route('featuredCategory.create'));
     }
 

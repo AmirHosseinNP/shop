@@ -48,7 +48,10 @@ class SliderController extends Controller
                 'link' => $request->get('link')
             ]);
 
-            return response()->json($slider);
+            return response()->json([
+                'slider' => $slider,
+                'success' => 'اسلاید با موفقیت ایجاد شد'
+            ]);
         }
     }
 
@@ -95,6 +98,8 @@ class SliderController extends Controller
             'link' => $request->get('link')
         ]);
 
+        session()->flash('success', 'اسلاید با موفقیت ویرایش شد');
+
         return redirect(route('sliders.index'));
     }
 
@@ -110,6 +115,8 @@ class SliderController extends Controller
 
         $slider->delete();
 
-        return response(['message' => 'The slider was deleted.'], 200);
+        return response([
+            'success' => 'اسلاید با موفقیت حذف شد'
+            ], 200);
     }
 }

@@ -20,6 +20,8 @@ class CommentController extends Controller
     {
         $comment->delete();
 
+        session()->flash('success', 'دیدگاه با موفقیت حذف شد');
+
         return redirect()->back();
     }
 }

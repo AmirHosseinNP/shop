@@ -33,6 +33,8 @@ class ProductPropertyController extends Controller
 
         $product->properties()->sync($properties);
 
+        session()->flash('success', 'عملیات با موفقیت انجام شد');
+
         return redirect(route('products.properties.index', $product));
     }
 }

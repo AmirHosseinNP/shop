@@ -43,6 +43,8 @@ class PropertyGroupController extends Controller
             'title' => $request->get('title')
         ]);
 
+        session()->flash('success', 'گروه ویژگی جدید با موفقیت ایجاد شد');
+
         return redirect(route('propertyGroups.index'));
     }
 
@@ -83,6 +85,8 @@ class PropertyGroupController extends Controller
             'title' => $request->get('title')
         ]);
 
+        session()->flash('success', 'گروه ویژگی با موفقیت ویرایش شد');
+
         return redirect(route('propertyGroups.index'));
     }
 
@@ -95,7 +99,7 @@ class PropertyGroupController extends Controller
     public function destroy(PropertyGroup $propertyGroup)
     {
 //        $propertyGroup->delete();
-//
+//            session()->flash('success', 'گروه ویژگی با موفقیت حذف شد');
 //        return redirect(route('propertyGroups.index'));
     }
 }

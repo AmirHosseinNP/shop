@@ -31,6 +31,7 @@
     <!-- Data Table-->
     <link rel="stylesheet" type="text/css" href="/admin/assets/vendor_components/datatable/datatables.min.css"/>
 
+    @yield('links')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -590,6 +591,22 @@
                     </ul>
                 </li>
 
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-apps"></i>
+                        <span>کدهای تخفیف</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                         </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{{ route('offers.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            <a href="{{ route('offers.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="pages/auth_login.html">
                         <i class="mdi mdi-directions"></i>
@@ -634,6 +651,7 @@
         <!-- Main content -->
         <section class="content">
         @yield('content')
+        @include('admin.layout.notification')
         <!-- /.row -->
         </section>
         <!-- /.content -->
@@ -854,6 +872,10 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);
+    $('.closed').click(() => {
+        console.log(this);
+        $('#alerttopleft').fadeOut();
+    })
 </script>
 
 <!-- popper -->

@@ -48,6 +48,8 @@ class BrandController extends Controller
             'image' => $path
         ]);
 
+        session()->flash('success', 'برند جدید با موفقیت ایجاد شد');
+
         return redirect(route('brands.index'));
     }
 
@@ -106,6 +108,8 @@ class BrandController extends Controller
             'image' => $path
         ]);
 
+        session()->flash('success', 'برند با موفقیت ویرایش شد');
+
         return redirect(route('brands.index'));
     }
 
@@ -120,6 +124,8 @@ class BrandController extends Controller
         Storage::delete('/' . $brand->image);
 
         $brand->delete();
+
+        session()->flash('success', 'برند با موفقیت حذف شد');
 
         return redirect(route('brands.index'));
     }

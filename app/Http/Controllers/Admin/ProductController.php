@@ -60,6 +60,8 @@ class ProductController extends Controller
             'description' => $request->get('description')
         ]);
 
+        session()->flash('success', 'محصول جدید با موفقیت ایجاد شد');
+
         return redirect(route('products.index'));
     }
 
@@ -126,6 +128,8 @@ class ProductController extends Controller
             'description' => $request->get('description')
         ]);
 
+        session()->flash('success', 'محصول با موفقیت ویرایش شد');
+
         return redirect(route('products.index'));
     }
 
@@ -140,6 +144,8 @@ class ProductController extends Controller
         Storage::delete($product->image);
 
         $product->delete();
+
+        session()->flash('success', 'محصول با موفقیت حذف شد');
 
         return redirect(route('products.index'));
     }

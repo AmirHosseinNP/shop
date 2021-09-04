@@ -49,6 +49,8 @@ class RoleController extends Controller
 
         $role->permissions()->attach($request->get('permissions'));
 
+        session()->flash('success', 'نقش جدید با موفقیت ایجاد شد');
+
         return redirect(route('roles.index'));
     }
 
@@ -101,6 +103,8 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->get('permissions'));
 
+        session()->flash('success', 'نقش با موفقیت ویرایش شد');
+
         return redirect(route('roles.index'));
     }
 
@@ -115,6 +119,8 @@ class RoleController extends Controller
         $role->permissions()->detach();
 
         $role->delete();
+
+        session()->flash('success', 'نقش با موفقیت حذف شد');
 
         return redirect()->back();
     }

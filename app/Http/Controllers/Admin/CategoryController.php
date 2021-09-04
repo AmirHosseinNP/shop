@@ -58,6 +58,8 @@ class CategoryController extends Controller
 
         $category->propertyGroups()->attach($request->get('property_groups'));
 
+        session()->flash('success', 'دسته بندی جدید با موفقیت ایجاد شد');
+
         return redirect(route('categories.index'));
     }
 
@@ -112,6 +114,8 @@ class CategoryController extends Controller
 
         $category->propertyGroups()->sync($request->get('property_groups'));
 
+        session()->flash('success', 'دسته بندی با موفقیت ویرایش شد');
+
         return redirect(route('categories.index'));
     }
 
@@ -132,6 +136,8 @@ class CategoryController extends Controller
         $category->propertyGroups()->detach();
 
         $category->delete();
+
+        session()->flash('success', 'دسته بندی با موفقیت حذف شد');
 
         return redirect(route('categories.index'));
     }

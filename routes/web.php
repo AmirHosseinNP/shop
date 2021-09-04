@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\FeaturedCategoryController;
+use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\Admin\ProductPropertyController;
 use App\Http\Controllers\Admin\PropertyController;
@@ -102,7 +103,7 @@ Route::prefix('/adminpanel')
             ->name('featuredCategory.create');
         Route::post('/featuredCategory', [FeaturedCategoryController::class, 'store'])
             ->name('featuredCategory.store');
-
+        Route::resource('offers', OfferController::class);
     });
 
 

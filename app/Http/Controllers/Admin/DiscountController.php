@@ -43,6 +43,8 @@ class DiscountController extends Controller
     {
         $product->addDiscount($request);
 
+        session()->flash('success', 'تخفیف با موفقیت اعمال شد');
+
         return redirect(route('products.index'));
     }
 
@@ -82,6 +84,8 @@ class DiscountController extends Controller
     {
         $product->updateDiscount($request);
 
+        session()->flash('success', 'تخفیف با موفقیت ویرایش شد');
+
         return redirect(route('products.index'));
     }
 
@@ -94,6 +98,8 @@ class DiscountController extends Controller
     public function destroy(Product $product, Discount $discount)
     {
         $product->deleteDiscount();
+
+        session()->flash('success', 'تخفیف با موفقیت حذف شد');
 
         return redirect(route('products.index'));
     }
