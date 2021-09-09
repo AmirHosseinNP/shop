@@ -310,7 +310,7 @@
                                     </p>
                                 </div>
                                 <div class="button-group">
-                                    <button class="btn-primary" type="button" onClick="cart.add('42');">
+                                    <button class="btn-primary" type="button" onClick="addToCart('{{ $product->slug }}', {{ $product->id }})">
                                         <span>افزودن به سبد</span>
                                     </button>
                                     <div class="add-to-links">
@@ -1020,7 +1020,7 @@
                                                     class="fa fa-star-o fa-stack-2x"></i></span></div>
                                     </div>
                                     <div class="button-group">
-                                        <button class="btn-primary" type="button" onClick=""><span>افزودن به سبد</span>
+                                        <button class="btn-primary" type="button" onClick="addToCart('{{ $product->slug }}', {{ $product->id }})"><span>افزودن به سبد</span>
                                         </button>
                                         <div class="add-to-links">
                                             <button type="button" data-toggle="tooltip" title="افزودن به علاقه مندی"

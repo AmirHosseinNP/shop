@@ -161,68 +161,134 @@
                             <button type="button" data-toggle="dropdown" data-loading-text="Loading..."
                                     class="heading dropdown-toggle">
                                 <span class="cart-icon pull-left flip"></span>
-                                <span id="cart-total">2 آیتم - 132000 تومان</span></button>
+                                <span id="cart-total">
+                                    <span id="total-items">
+                                        @if(session()->has('cart'))
+                                            {{ \App\Models\Cart::totalItems() }}
+                                            آیتم -
+                                        @else
+                                            0 آیتم -
+                                        @endif
+                                    </span>
+                                    <span class="total-cost-with-discount">
+                                        @if(session()->has('cart'))
+                                            {{ number_format(\App\Models\Cart::totalCostWithDiscount()) }}
+                                            تومان
+                                        @else
+                                            0 تومان
+                                        @endif
+                                    </span>
+                                </span>
+                            </button>
                             <ul class="dropdown-menu">
                                 <li>
                                     <table class="table">
-                                        <tbody>
-                                        <tr>
-                                            <td class="text-center"><a href="product.html"><img class="img-thumbnail"
-                                                                                                title="کفش راحتی مردانه"
-                                                                                                alt="کفش راحتی مردانه"
-                                                                                                src="/client/image/product/sony_vaio_1-50x50.jpg"></a>
-                                            </td>
-                                            <td class="text-left"><a href="product.html">کفش راحتی مردانه</a></td>
-                                            <td class="text-right">x 1</td>
-                                            <td class="text-right">32000 تومان</td>
-                                            <td class="text-center">
-                                                <button class="btn btn-danger btn-xs remove" title="حذف" onClick=""
-                                                        type="button"><i class="fa fa-times"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><a href="product.html"><img class="img-thumbnail"
-                                                                                                title="تبلت ایسر"
-                                                                                                alt="تبلت ایسر"
-                                                                                                src="/client/image/product/samsung_tab_1-50x50.jpg"></a>
-                                            </td>
-                                            <td class="text-left"><a href="product.html">تبلت ایسر</a></td>
-                                            <td class="text-right">x 1</td>
-                                            <td class="text-right">98000 تومان</td>
-                                            <td class="text-center">
-                                                <button class="btn btn-danger btn-xs remove" title="حذف" onClick=""
-                                                        type="button"><i class="fa fa-times"></i></button>
-                                            </td>
-                                        </tr>
+                                        <tbody id="cart-products">
+                                        @if(session()->has('cart'))
+                                            @foreach(\App\Models\Cart::getProductsInCart() as $item)
+                                                <tr class="cart-item-{{ $item['product']->id }}">
+                                                    <td class="text-center">
+                                                        <a href="{{ route('client.products.show', $item['product']) }}">
+                                                            <img class="img-thumbnail"
+                                                                 title="{{ $item['product']->name }}"
+                                                                 width="75"
+                                                                 alt="{{ $item['product']->name }}"
+                                                                 src="{{ str_replace('public', '/storage', $item['product']->image) }}">
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-left" style="vertical-align: middle;"><a
+                                                            href="{{ route('client.products.show', $item['product']) }}">{{ $item['product']->name }}</a>
+                                                    </td>
+                                                    <td class="text-right" style="vertical-align: middle;">
+                                                        x {{ $item['quantity'] }}</td>
+                                                    <td class="text-right"
+                                                        style="vertical-align: middle;">{{ number_format($item['product']->cost_with_discount) }}
+                                                        تومان
+                                                    </td>
+                                                    <td class="text-center" style="vertical-align: middle;">
+                                                        <button class="btn btn-danger btn-xs remove" title="حذف"
+                                                                type="button"
+                                                                onclick="removeFromCart('{{ $item['product']->slug }}', {{ $item['product']->id }})">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                         </tbody>
                                     </table>
                                 </li>
                                 <li>
                                     <div>
+
                                         <table class="table table-bordered">
                                             <tbody>
                                             <tr>
                                                 <td class="text-right"><strong>جمع کل</strong></td>
-                                                <td class="text-right">132000 تومان</td>
+                                                <td class="text-right total-cost">
+                                                    @if(session()->has('cart'))
+                                                        {{ number_format(\App\Models\Cart::totalCost()) }}
+                                                        تومان
+                                                    @else
+                                                        0 تومان
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td class="text-right"><strong>کسر هدیه</strong></td>
-                                                <td class="text-right">4000 تومان</td>
+                                                <td class="text-right"><strong>کسر تخفیف</strong></td>
+                                                <td class="text-right total-discount">
+                                                    @if(session()->has('cart'))
+                                                        {{ number_format(\App\Models\Cart::calculateTotalDiscount()) }}
+                                                        تومان
+                                                    @else
+                                                        0 تومان
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right"><strong>جمع کل پس از کسر تخفیف</strong></td>
+                                                <td class="text-right total-cost-with-discount">
+                                                    @if(session()->has('cart'))
+                                                        {{ number_format(\App\Models\Cart::totalCostWithDiscount()) }}
+                                                        تومان
+                                                    @else
+                                                        0 تومان
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-right"><strong>مالیات</strong></td>
-                                                <td class="text-right">11880 تومان</td>
+                                                <td class="text-right tax">
+                                                    @if(session()->has('cart'))
+                                                        {{ number_format(\App\Models\Cart::calculateTax()) }}
+                                                        تومان
+                                                    @else
+                                                        0 تومان
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-right"><strong>قابل پرداخت</strong></td>
-                                                <td class="text-right">139880 تومان</td>
+                                                <td class="text-right payable">
+                                                    @if(session()->has('cart'))
+                                                        {{ number_format(\App\Models\Cart::calculatePayable()) }}
+                                                        تومان
+                                                    @else
+                                                        0 تومان
+                                                    @endif
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <p class="checkout"><a href="cart.html" class="btn btn-primary"><i
-                                                    class="fa fa-shopping-cart"></i> مشاهده سبد</a>&nbsp;&nbsp;&nbsp;<a
-                                                href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i>
-                                                تسویه حساب</a></p>
+                                        <p class="checkout">
+                                            <a href="{{ route('client.cart.index') }}" class="btn btn-primary">
+                                                <i class="fa fa-shopping-cart"></i> مشاهده سبد
+                                            </a>&nbsp;&nbsp;&nbsp;
+                                            <a href="checkout.html" class="btn btn-primary">
+                                                <i class="fa fa-share"></i>
+                                                تسویه حساب
+                                            </a>
+                                        </p>
                                     </div>
                                 </li>
                             </ul>
@@ -355,46 +421,29 @@
     <!-- Facebook Side Block Start -->
     <div id="facebook" class="fb-left sort-order-1">
         <div class="facebook_icon"><i class="fa fa-facebook"></i></div>
-        <div class="fb-page" data-href="https://www.facebook.com/harnishdesign/" data-small-header="true"
+        <div class="fb-page" data-href="#" data-small-header="true"
              data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false">
             <div class="fb-xfbml-parse-ignore">
-                <blockquote cite="https://www.facebook.com/harnishdesign/"><a
-                        href="https://www.facebook.com/harnishdesign/">هارنیش دیزاین</a></blockquote>
+                <blockquote cite=""><a
+                        href="">هارنیش دیزاین</a></blockquote>
             </div>
         </div>
         <div id="fb-root"></div>
-        <script>(function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
     </div>
     <!-- Facebook Side Block End -->
     <!-- Twitter Side Block Start -->
     <div id="twitter_footer" class="twit-left sort-order-2">
         <div class="twitter_icon"><i class="fa fa-twitter"></i></div>
-        <a class="twitter-timeline" href="https://twitter.com/" data-chrome="nofooter noscrollbar transparent"
+        <a class="twitter-timeline" href="" data-chrome="nofooter noscrollbar transparent"
            data-theme="light" data-tweet-limit="2" data-related="twitterapi,twitter" data-aria-polite="assertive"
            data-widget-id="347621595801608192">توییت های @</a>
-        <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = p + "://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");</script>
     </div>
     <!-- Twitter Side Block End -->
     <!-- Video Side Block Start -->
     <div id="video_box" class="vb-left sort-order-3">
         <div id="video_box_icon"><i class="fa fa-play"></i></div>
         <p>
-            <iframe allowfullscreen="" src="//www.youtube.com/embed/SZEflIVnhH8" height="315" width="560"></iframe>
+            <iframe allowfullscreen="" src="#" height="315" width="560"></iframe>
         </p>
     </div>
     <!-- Video Side Block End -->
@@ -422,11 +471,6 @@
 </div>
 <!-- JS Part Start-->
 <script type="text/javascript" src="/client/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/client/js/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/client/js/jquery.easing-1.3.min.js"></script>
-<script type="text/javascript" src="/client/js/jquery.dcjqaccordion.min.js"></script>
-<script type="text/javascript" src="/client/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/client/js/custom.js"></script>
 <script>
     function like(btn, productSlug) {
         @auth
@@ -445,7 +489,146 @@
             window.location.href = "{{ route('client.register') }}";
         @endauth
     }
+
+    function addToCart(productSlug, productId) {
+        let quantityInput = $('.input-quantity-' + productId);
+        let quantity = (quantityInput.length) ? quantityInput.val() : 1;
+        $.ajax({
+            url: '/cart/' + productSlug,
+            type: 'POST',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "quantity": quantity
+            },
+            success: function (response) {
+                let tax = response.cart.total_cost_with_discount * 9 / 100;
+                let costWithDiscountCells = {};
+
+                $('#total-items').html(response.cart.total_items + ' آیتم -');
+                sessionStorage.setItem('total-items', $('#total-items').html());
+
+                $('.total-cost-with-discount').html(response.cart.total_cost_with_discount.toLocaleString('en-US') + ' تومان');
+                sessionStorage.setItem('total-cost-with-discount', $('.total-cost-with-discount').html());
+
+                $('tbody#cart-products').html('');
+
+                response.cart.products.forEach(function (item) {
+                    const style = {veticalAlign: "middle"};
+                    let append =
+                        '<tr class="cart-item-' + item.product.id + '">' +
+                        '<td class="text-center">' +
+                        '<a href="/products/' + item.product.slug + '">' +
+                        '<img class="img-thumbnail" title="' + item.product.name + '" width="75" alt="' + item.product.name + '"' +
+                        'src="' + item.product.image.replace('public', '/storage') + '">' +
+                        '</a>' +
+                        '</td>' +
+                        '<td class="text-left" style="vertical-align: middle;">' +
+                        '<a href="/products/' + item.product.slug + '">' + item.product.name + '</a>' +
+                        '</td>' +
+                        '<td class="text-right" style="vertical-align: middle;">x ' + item.quantity + '</td>' +
+                        '<td class="text-right" style="vertical-align: middle;">' +
+                        item.product.cost_with_discount.toLocaleString('en-US') + ' تومان ' +
+                        '</td>' +
+                        '<td class="text-center" style="vertical-align: middle;">' +
+                        '<button class="btn btn-danger btn-xs remove" title="حذف" onClick="removeFromCart(\'' + item.product.slug + '\', ' + item.product.id + ')" type="button">' +
+                        '<i class="fa fa-times"></i>' +
+                        '</button>' +
+                        '</td>' +
+                        '</tr>';
+
+                    $('#cost-with-discount-' + item.product.id).html((item.product.cost_with_discount * item.quantity).toLocaleString('en-US') + ' تومان ');
+                    costWithDiscountCells['cost-with-discount-' + item.product.id] = $('#cost-with-discount-' + item.product.id).html();
+
+                    $('tbody#cart-products').append(append);
+                });
+
+
+                sessionStorage.setItem('cart-products', $('tbody#cart-products').html());
+                sessionStorage.setItem('costWithDiscountCells', JSON.stringify(costWithDiscountCells));
+
+                $('.total-cost').html(response.cart.total_cost.toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('total-cost', $('.total-cost').html());
+
+                $('.total-discount').html(response.cart.total_discount.toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('total-discount', $('.total-discount').html());
+
+                $('.tax').html(tax.toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('tax', $('.tax').html());
+
+                $('.payable').html((response.cart.total_cost_with_discount + tax).toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('payable', $('.payable').html());
+            }
+        });
+    }
+
+    function removeFromCart(productSlug, productId) {
+        $.ajax({
+            url: '/cart/' + productSlug,
+            type: 'DELETE',
+            data: {"_token": "{{ csrf_token() }}"},
+            success: function (response) {
+                let tax = response.cart.total_cost_with_discount * 9 / 100;
+                let costWithDiscountCells = {};
+
+                $('.cart-item-' + productId).remove();
+                sessionStorage.setItem('cart-products', $('tbody#cart-products').html());
+
+                $('#total-items').html(response.cart.total_items + ' آیتم -');
+                sessionStorage.setItem('total-items', $('#total-items').html());
+
+                $('.total-cost-with-discount').html(response.cart.total_cost_with_discount.toLocaleString('en-US') + ' تومان');
+                sessionStorage.setItem('total-cost-with-discount', $('.total-cost-with-discount').html());
+
+                response.cart.products.forEach((item) => {
+                    $('#cost-with-discount-' + item.product.id).html(((item.product.cost - item.product.cost * item.discount / 100) * item.quantity).toLocaleString('en-US') + ' تومان ')
+                    costWithDiscountCells['cost-with-discount-' + item.product.id] = $('#cost-with-discount-' + item.product.id).html();
+                });
+                sessionStorage.setItem('costWithDiscountCells', JSON.stringify(costWithDiscountCells));
+
+                $('.total-cost').html(response.cart.total_cost.toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('total-cost', $('.total-cost').html());
+
+                $('.total-discount').html(response.cart.total_discount.toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('total-discount', $('.total-discount').html());
+
+                $('.tax').html(tax.toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('tax', $('.tax').html());
+
+                $('.payable').html((response.cart.total_cost_with_discount + tax).toLocaleString('en-US') + ' تومان ');
+                sessionStorage.setItem('payable', $('.payable').html());
+            }
+        });
+    }
+
+    function setHtmlChanges() {
+        let costWithDiscountCells = JSON.parse(sessionStorage.getItem('costWithDiscountCells'));
+
+        $('#total-items').html(sessionStorage.getItem('total-items'));
+        $('.total-cost-with-discount').html(sessionStorage.getItem('total-cost-with-discount'));
+        $('tbody#cart-products').html(sessionStorage.getItem('cart-products'));
+        $('.total-cost').html(sessionStorage.getItem('total-cost'));
+        $('.total-discount').html(sessionStorage.getItem('total-discount'));
+        $('.tax').html(sessionStorage.getItem('tax'));
+        $('.payable').html(sessionStorage.getItem('payable'));
+
+        for (let index in costWithDiscountCells) {
+            $('#' + index).html(costWithDiscountCells[index]);
+        }
+    }
+
+    $(document).ready(function () {
+        if (sessionStorage.length) {
+            setHtmlChanges();
+        }
+    });
+
 </script>
+<script type="text/javascript" src="/client/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/client/js/jquery.easing-1.3.min.js"></script>
+<script type="text/javascript" src="/client/js/jquery.dcjqaccordion.min.js"></script>
+<script type="text/javascript" src="/client/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/client/js/custom.js"></script>
+
 <!-- JS Part End-->
 @yield('scripts')
 </body>

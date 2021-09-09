@@ -13,6 +13,8 @@ class Product extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['cost_with_discount', 'discount_amount'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -116,6 +118,15 @@ class Product extends Model
         }
 
         return null;
+    }
+
+    public function getDiscountAmountAttribute()
+    {
+        if (!$this->has_discount) {
+            return 0;
+        }
+
+        return $this->cost - $this->cost_with_discount;
     }
 
     public function properties()

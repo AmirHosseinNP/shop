@@ -12,12 +12,14 @@ use App\Http\Controllers\Admin\PropertyGroupController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\CommentController;
 use App\Http\Controllers\Client\LikeController;
 use App\Http\Controllers\Client\RegisterController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
+use App\Http\Controllers\OrderController;
 use App\Http\Middleware\CheckPermission;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CommentController as AdminCommentController;
@@ -68,6 +70,18 @@ Route::prefix('')->name('client.')->group(function () {
 
     Route::delete('/likes/{product}', [LikeController::class, 'destroy'])
         ->name('likes.destroy');
+
+    Route::get('/cart', [CartController::class, 'index'])
+        ->name('cart.index');
+
+    Route::post('/cart/{product}', [CartController::class, 'store'])
+        ->name('cart.store');
+
+    Route::delete('/cart/{product}', [CartController::class, 'destroy'])
+        ->name('cart.destroy');
+
+    Route::get('/orders/create', [OrderController::class, 'create'])
+        ->name('orders.create');
 });
 
 //admin routes

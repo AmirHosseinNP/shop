@@ -93,12 +93,12 @@
                                             <div class="qty">
                                                 <label class="control-label" for="input-quantity">تعداد</label>
                                                 <input type="text" name="quantity" value="1" size="2"
-                                                       id="input-quantity" class="form-control"/>
+                                                       id="input-quantity" class="form-control input-quantity-{{ $product->id }}"/>
                                                 <a class="qtyBtn plus" href="javascript:void(0);">+</a><br/>
                                                 <a class="qtyBtn mines" href="javascript:void(0);">-</a>
                                                 <div class="clear"></div>
                                             </div>
-                                            <button type="button" id="button-cart" class="btn btn-primary btn-lg">افزودن
+                                            <button type="button" onclick="addToCart('{{ $product->slug }}', {{ $product->id }})" id="button-cart" class="btn btn-primary btn-lg">افزودن
                                                 به سبد
                                             </button>
                                         </div>
@@ -141,8 +141,6 @@
                                         pi:pinit:url="http://www.addthis.com/features/pinterest"
                                         pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
                                     <a class="addthis_counter addthis_pill_style"></a></div>
-                                <script type="text/javascript"
-                                        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514863386b357649"></script>
                                 <!-- AddThis Button END -->
                             </div>
                         </div>
