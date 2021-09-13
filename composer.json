@@ -12,7 +12,7 @@
         "hekmatinasser/verta": "^1.12",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-      "ext-http": "*"
+        "shetabit/payment": "^4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

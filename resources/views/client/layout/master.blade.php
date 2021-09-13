@@ -84,7 +84,7 @@
                                         </a>
                                     </li>
                                 @endauth
-                                <li><a href="checkout.html">تسویه حساب</a></li>
+                                <li><a href="{{ route('client.orders.create') }}">ثبت سفارش</a></li>
                             </ul>
                         </div>
                         <div id="language" class="btn-group">
@@ -284,9 +284,9 @@
                                             <a href="{{ route('client.cart.index') }}" class="btn btn-primary">
                                                 <i class="fa fa-shopping-cart"></i> مشاهده سبد
                                             </a>&nbsp;&nbsp;&nbsp;
-                                            <a href="checkout.html" class="btn btn-primary">
+                                            <a href="{{ route('client.orders.create') }}" class="btn btn-primary">
                                                 <i class="fa fa-share"></i>
-                                                تسویه حساب
+                                                ثبت سفارش
                                             </a>
                                         </p>
                                     </div>
@@ -492,7 +492,12 @@
 
     function addToCart(productSlug, productId) {
         let quantityInput = $('.input-quantity-' + productId);
+        if (quantityInput.val() == 0) {
+            alert('مقدار ورودی باید بزرگتر از 0 باشد');
+            return;
+        }
         let quantity = (quantityInput.length) ? quantityInput.val() : 1;
+
         $.ajax({
             url: '/cart/' + productSlug,
             type: 'POST',
@@ -503,6 +508,8 @@
             success: function (response) {
                 let tax = response.cart.total_cost_with_discount * 9 / 100;
                 let costWithDiscountCells = {};
+
+                sessionStorage.removeItem('cart-table');
 
                 $('#total-items').html(response.cart.total_items + ' آیتم -');
                 sessionStorage.setItem('total-items', $('#total-items').html());
@@ -542,7 +549,6 @@
                     $('tbody#cart-products').append(append);
                 });
 
-
                 sessionStorage.setItem('cart-products', $('tbody#cart-products').html());
                 sessionStorage.setItem('costWithDiscountCells', JSON.stringify(costWithDiscountCells));
 
@@ -572,6 +578,7 @@
 
                 $('.cart-item-' + productId).remove();
                 sessionStorage.setItem('cart-products', $('tbody#cart-products').html());
+                sessionStorage.setItem('cart-table', $('tbody#cart-table').html());
 
                 $('#total-items').html(response.cart.total_items + ' آیتم -');
                 sessionStorage.setItem('total-items', $('#total-items').html());
@@ -580,7 +587,7 @@
                 sessionStorage.setItem('total-cost-with-discount', $('.total-cost-with-discount').html());
 
                 response.cart.products.forEach((item) => {
-                    $('#cost-with-discount-' + item.product.id).html(((item.product.cost - item.product.cost * item.discount / 100) * item.quantity).toLocaleString('en-US') + ' تومان ')
+                    $('#cost-with-discount-' + item.product.id).html((item.product.cost_with_discount * item.quantity).toLocaleString('en-US') + ' تومان ')
                     costWithDiscountCells['cost-with-discount-' + item.product.id] = $('#cost-with-discount-' + item.product.id).html();
                 });
                 sessionStorage.setItem('costWithDiscountCells', JSON.stringify(costWithDiscountCells));
@@ -610,6 +617,10 @@
         $('.total-discount').html(sessionStorage.getItem('total-discount'));
         $('.tax').html(sessionStorage.getItem('tax'));
         $('.payable').html(sessionStorage.getItem('payable'));
+
+        if (sessionStorage.getItem('cart-table') != null) {
+            $('#cart-table').html(sessionStorage.getItem('cart-table'));
+        }
 
         for (let index in costWithDiscountCells) {
             $('#' + index).html(costWithDiscountCells[index]);

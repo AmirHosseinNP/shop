@@ -25,7 +25,7 @@
                                 <td class="text-center">کل</td>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cart-table">
                             @isset($items)
                                 @foreach($items as $item)
                                     <tr class="cart-item-{{ $item['product']->id }}">
@@ -46,7 +46,7 @@
                                         </td>
                                         <td class="text-center" style="vertical-align: middle;">
                                             <div class="input-group btn-block quantity">
-                                                <input type="text" name="quantity"
+                                                <input type="number" name="quantity" min="1"
                                                        value="{{ $item['quantity'] }}" size="1"
                                                        class="form-control input-quantity-{{ $item['product']->id }}"/>
                                                 <span class="input-group-btn">
@@ -136,8 +136,8 @@
                         </div>
                     </div>
                     <div class="buttons">
-                        <div class="pull-left"><a href="index.html" class="btn btn-default">ادامه خرید</a></div>
-                        <div class="pull-right"><a href="checkout.html" class="btn btn-primary">تسویه حساب</a></div>
+                        <div class="pull-left"><a href="{{ route('client.index') }}" class="btn btn-default">ادامه خرید</a></div>
+                        <div class="pull-right"><a href="{{ route('client.orders.create') }}" class="btn btn-primary">ثبت سفارش</a></div>
                     </div>
                 </div>
                 <!--Middle Part End -->

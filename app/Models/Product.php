@@ -13,7 +13,7 @@ class Product extends Model
 
     protected $guarded = [];
 
-    protected $appends = ['cost_with_discount', 'discount_amount'];
+    protected $appends = ['cost_with_discount', 'discount_amount', 'image_path'];
 
     public function category()
     {
@@ -127,6 +127,11 @@ class Product extends Model
         }
 
         return $this->cost - $this->cost_with_discount;
+    }
+
+    public function getImagePathAttribute()
+    {
+        return str_replace('public', '/storage', $this->image);
     }
 
     public function properties()

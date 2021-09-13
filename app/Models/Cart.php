@@ -56,7 +56,7 @@ class Cart
                 'total_items' => 1,
                 'total_cost' => $product->cost * $request->get('quantity'),
                 'total_cost_with_discount' => $product->cost_with_discount * $request->get('quantity'),
-                'total_discount' => $product->has_discount ? $product->discount_amount : 0
+                'total_discount' => $product->discount_amount * $request->get('quantity')
             ]);
         }
     }
@@ -153,10 +153,15 @@ class Cart
 
         foreach (session('cart')['products'] as $item) {
             if ($item['product']->has_discount) {
-                $total_discount += $item['product']->discount_amount;
+                $total_discount += $item['product']->discount_amount * $item['quantity'];
             }
         }
 
         return $total_discount;
+    }
+
+    public static function removeCart()
+    {
+        session()->forget('cart');
     }
 }
