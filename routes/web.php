@@ -85,6 +85,12 @@ Route::prefix('')->name('client.')->group(function () {
 
     Route::post('/orders', [OrderController::class, 'store'])
         ->name('orders.store');
+
+    Route::get('/orders/{order}', [OrderController::class, 'show'])
+        ->name('orders.show');
+
+    Route::get('/orders/payment/verify', [OrderController::class, 'verify'])
+        ->name('orders.verify');
 });
 
 //admin routes

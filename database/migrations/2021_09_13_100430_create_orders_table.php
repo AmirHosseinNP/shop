@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedInteger('total_amount');
             $table->string('address');
+            $table->string('transaction_id')->nullable();
             $table->string('payment_status')->default('unknown');
             $table->timestamps();
         });

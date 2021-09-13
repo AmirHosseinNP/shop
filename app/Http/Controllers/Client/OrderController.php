@@ -7,6 +7,9 @@ use App\Http\Requests\OrderRequest;
 use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Shetabit\Multipay\Invoice;
+use Shetabit\Payment\Facade\Payment;
+
 
 class OrderController extends Controller
 {
@@ -40,8 +43,29 @@ class OrderController extends Controller
             ]);
         }
 
-        Cart::removeCart();
+        $invoice = (new Invoice())->amount($order->total_amount);
 
-        return redirect()->back();
+        return Payment::purchase($invoice, function ($driver, $transactionId) use($order) {
+            $order->update([
+                'transaction_id' => $transactionId
+            ]);
+        })->pay()->render();
+    }
+
+    public function show(Order $order)
+    {
+        Cart::removeCart();
+        return view('client.orders.show', compact('order'));
+    }
+
+    public function verify(Request $request)
+    {
+        $order = Order::query()->where('transaction_id', $request->get('Authority'))->first();
+
+        $order->update([
+            'payment_status' => $request->get('Status')
+        ]);
+
+        return redirect(route('client.orders.show', $order));
     }
 }
